@@ -1465,6 +1465,166 @@ color: lab(55% 30 20);</code></pre>
 </section>
 
 
+    <section class="section">
+  <!-- SECTION AM: Aspect Ratio (Deep Dive) -->
+  <!-- Controls element proportions by locking width and height ratio for responsive layout control. -->
+  <h2>Section AM – Aspect Ratio (Deep Dive)</h2>
+  <p><em>Note: <code>aspect-ratio</code> maintains a consistent ratio between width and height. Ideal for images, videos, containers, and placeholders in responsive layouts.</em></p>
+
+  <ul>
+    <li><strong>AM.1 – Basic usage:</strong>
+      <pre><code>.box {
+  aspect-ratio: 16 / 9;
+}</code></pre>
+      <p>This creates a box that always maintains a 16:9 ratio.</p>
+    </li>
+
+    <li><strong>AM.2 – Square and golden ratio examples:</strong>
+      <pre><code>.square {
+  aspect-ratio: 1 / 1;
+}
+
+.golden {
+  aspect-ratio: 1.618 / 1;
+}</code></pre>
+    </li>
+
+    <li><strong>AM.3 – Works with <code>width</code>, <code>height</code>, or both unset:</strong>
+      <p>If only one dimension is defined, the other is inferred from the ratio.</p>
+      <pre><code>.responsive {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}</code></pre>
+    </li>
+
+    <li><strong>AM.4 – Used in Grid or Flex layouts:</strong>
+      <pre><code>.grid-item {
+  aspect-ratio: 1 / 1;
+}</code></pre>
+      <p>Ensures even spacing or consistent card size in dynamic layouts.</p>
+    </li>
+
+    <li><strong>AM.5 – Maintaining aspect ratio on media:</strong>
+      <pre><code>img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+}</code></pre>
+      <p>Supports images that lack intrinsic aspect ratios or are dynamically sized.</p>
+    </li>
+
+    <li><strong>AM.6 – Nested use with object-fit:</strong>
+      <pre><code>.image-box {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.image-box img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}</code></pre>
+      <p>Used for avatar frames, thumbnails, or video containers.</p>
+    </li>
+
+    <li><strong>AM.7 – Browser support:</strong>
+      <p>Fully supported in all major browsers (Chrome, Edge, Firefox, Safari).</p>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION AN: Form Styling -->
+  <!-- Covers standard and advanced styling of form elements like inputs, labels, selects, checkboxes, radios, and states. -->
+  <h2>Section AN – Form Styling</h2>
+  <p><em>Note: Form controls require careful styling for consistency across browsers, accessibility, and responsive layout. CSS enables full control over layout, spacing, colors, focus, and states.</em></p>
+
+  <ul>
+    <li><strong>AN.1 – Basic input and label:</strong>
+      <pre><code>label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.2 – Placeholder styling:</strong>
+      <pre><code>::placeholder {
+  color: #888;
+  font-style: italic;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.3 – Focus states:</strong>
+      <pre><code>input:focus,
+textarea:focus {
+  outline: 2px solid #0077cc;
+  border-color: #0077cc;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.4 – Disabled and read-only:</strong>
+      <pre><code>input:disabled {
+  background: #f3f3f3;
+  cursor: not-allowed;
+  opacity: 0.7;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.5 – Custom checkbox/radio:</strong>
+      <p>Default styles are limited. Use pseudo-elements or appearance reset:</p>
+      <pre><code>input[type="checkbox"] {
+  accent-color: #0077cc;
+}</code></pre>
+      <p>Use <code>appearance: none;</code> and custom SVG for full control.</p>
+    </li>
+
+    <li><strong>AN.6 – Range sliders and file inputs:</strong>
+      <p>These require vendor-specific pseudo-elements and may be best left minimally styled or replaced with JS-based components.</p>
+    </li>
+
+    <li><strong>AN.7 – Layout with grid/flex:</strong>
+      <pre><code>.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.8 – Submit buttons:</strong>
+      <pre><code>button[type="submit"] {
+  background: #005fcc;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background: #0043aa;
+}</code></pre>
+    </li>
+
+    <li><strong>AN.9 – Accessibility best practices:</strong>
+      <ul>
+        <li>Use <code>label</code> elements with <code>for</code> attributes.</li>
+        <li>Group related controls with <code>&lt;fieldset&gt;</code> and <code>&lt;legend&gt;</code>.</li>
+        <li>Ensure visible focus indicators.</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
     
     
     
