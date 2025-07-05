@@ -143,3 +143,8 @@ a:hover {
   }
 }
 
+@supports (container-type: inline-size) {
+  /* container query styles */
+}
+
+
