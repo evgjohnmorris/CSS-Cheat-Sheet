@@ -42,6 +42,949 @@
   </ul>
 </section>
 
+<section class="section">
+  <!-- SECTION B: CSS Selectors -->
+  <!-- Covers all selector types: universal, type, class, ID, grouping, combinators, attributes, pseudo-classes, and pseudo-elements. -->
+  <h2>Section B – Selectors</h2>
+  <p><em>Note: Selectors are patterns used to target HTML elements and apply styles.</em></p>
+  <ul>
+    <li><strong>B.1 – Universal Selector (<code>*</code>):</strong> Matches any element.</li>
+    <li><strong>B.2 – Type Selector (<code>div</code>):</strong> Selects elements by tag name.</li>
+    <li><strong>B.3 – Class Selector (<code>.class</code>):</strong> Selects elements with a matching class.</li>
+    <li><strong>B.4 – ID Selector (<code>#id</code>):</strong> Selects the unique element with that ID.</li>
+    <li><strong>B.5 – Grouping Selectors (<code>h1, p</code>):</strong> Applies styles to multiple selectors at once.</li>
+    <li><strong>B.6 – Attribute Selector (<code>[type="text"]</code>):</strong> Targets elements with specific attributes or values.</li>
+    <li><strong>B.7 – Descendant Combinator (<code>A B</code>):</strong> Selects element B inside element A (nested structure).</li>
+    <li><strong>B.8 – Child Combinator (<code>A > B</code>):</strong> Selects direct children B of parent A.</li>
+    <li><strong>B.9 – Adjacent Sibling Combinator (<code>A + B</code>):</strong> Selects element B immediately after A.</li>
+    <li><strong>B.10 – General Sibling Combinator (<code>A ~ B</code>):</strong> Selects all B siblings after A.</li>
+    <li><strong>B.11 – Pseudo-Classes (<code>:hover</code>):</strong> Target elements based on state (e.g., hover, focus, checked).</li>
+    <li><strong>B.12 – Structural Pseudo-Classes (<code>:nth-child(2n)</code>):</strong> Target elements by position or type.</li>
+    <li><strong>B.13 – Pseudo-Elements (<code>::before</code>, <code>::after</code>):</strong> Style generated content before/after elements.</li>
+    <li><strong>B.14 – Interactive States:</strong> Includes <code>:focus</code>, <code>:disabled</code>, <code>:checked</code>, etc.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION C: CSS Box Model -->
+  <!-- Explains the four areas of a CSS box: content, padding, border, and margin. Describes box-sizing behavior. -->
+  <h2>Section C – Box Model</h2>
+  <p><em>Note: Every HTML element is a rectangular box composed of content, padding, border, and margin. This section explains how layout space is calculated and adjusted using the box model.</em></p>
+  <ul>
+    <li><strong>C.1 – Content:</strong> The innermost box that holds text or other elements.</li>
+    <li><strong>C.2 – Padding:</strong> Space between the content and the border. It increases the visual spacing inside the element.</li>
+    <li><strong>C.3 – Border:</strong> The edge around the padding. You can set width, style, and color.</li>
+    <li><strong>C.4 – Margin:</strong> Space outside the border, separating the element from others.</li>
+    <li><strong>C.5 – Box-Sizing (<code>content-box</code> vs <code>border-box</code>):</strong> Determines whether width/height includes padding and border.</li>
+    <li><strong>C.6 – Collapsing Margins:</strong> When vertical margins of adjacent blocks merge into a single margin.</li>
+    <li><strong>C.7 – Outline (Non-box Model):</strong> An outline that does not affect box size (used for focus/accessibility).</li>
+  </ul>
+</section>
+
+    <section class="section">
+  <!-- SECTION D: CSS Display & Positioning -->
+  <!-- Controls how elements are rendered in the layout: flow, inline/blocks, and placement on the page using CSS position properties. -->
+  <h2>Section D – Display & Positioning</h2>
+  <p><em>Note: This section explains how elements behave in the layout flow using <code>display</code> and how to explicitly control their location using the <code>position</code> property and offsets.</em></p>
+  <ul>
+    <li><strong>D.1 – Display Property:</strong> Defines layout behavior. Common values include:
+      <ul>
+        <li><code>block</code>: Element starts on a new line and stretches to full width.</li>
+        <li><code>inline</code>: Stays on the same line without breaking.</li>
+        <li><code>inline-block</code>: Like inline but supports width/height.</li>
+        <li><code>none</code>: Hides the element completely.</li>
+      </ul>
+    </li>
+    <li><strong>D.2 – Position Property:</strong> Determines how an element is positioned in the document. Values include:
+      <ul>
+        <li><code>static</code>: Default. Follows normal flow.</li>
+        <li><code>relative</code>: Positioned relative to its normal position.</li>
+        <li><code>absolute</code>: Positioned relative to the nearest positioned ancestor.</li>
+        <li><code>fixed</code>: Positioned relative to the viewport (always stays visible).</li>
+        <li><code>sticky</code>: Toggles between relative and fixed based on scroll.</li>
+      </ul>
+    </li>
+    <li><strong>D.3 – Top / Right / Bottom / Left:</strong> Offset properties used with <code>position</code> (except static).</li>
+    <li><strong>D.4 – Float:</strong> Moves elements to the left or right. Removed from normal flow.</li>
+    <li><strong>D.5 – Clear:</strong> Prevents elements from wrapping around floated elements.</li>
+    <li><strong>D.6 – Visibility vs Display:</strong> <code>visibility: hidden</code> hides the element but preserves its space.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION E: Flexbox Layout Model -->
+  <!-- Flexbox enables responsive one-dimensional layouts along a horizontal or vertical axis. Items align and distribute dynamically. -->
+  <h2>Section E – Flexbox</h2>
+  <p><em>Note: Flexbox is a one-dimensional layout system that allows elements to align and distribute space within a container along a single axis (row or column).</em></p>
+  <ul>
+    <li><strong>E.1 – display: flex;</strong> Turns a container into a flex context.</li>
+    <li><strong>E.2 – flex-direction:</strong> Defines the main axis direction. Values:
+      <ul>
+        <li><code>row</code> (default), <code>row-reverse</code>, <code>column</code>, <code>column-reverse</code></li>
+      </ul>
+    </li>
+    <li><strong>E.3 – justify-content:</strong> Aligns items along the main axis. Values:
+      <ul>
+        <li><code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>space-between</code>, <code>space-around</code>, <code>space-evenly</code></li>
+      </ul>
+    </li>
+    <li><strong>E.4 – align-items:</strong> Aligns items along the cross axis. Values:
+      <ul>
+        <li><code>stretch</code> (default), <code>flex-start</code>, <code>center</code>, <code>flex-end</code>, <code>baseline</code></li>
+      </ul>
+    </li>
+    <li><strong>E.5 – align-self:</strong> Overrides <code>align-items</code> for a specific item.</li>
+    <li><strong>E.6 – flex-wrap:</strong> Allows items to wrap onto multiple lines. Values: <code>nowrap</code>, <code>wrap</code>, <code>wrap-reverse</code></li>
+    <li><strong>E.7 – align-content:</strong> Controls space between wrapped lines on the cross axis.</li>
+    <li><strong>E.8 – gap:</strong> Defines spacing between rows and columns.</li>
+    <li><strong>E.9 – flex-grow:</strong> Defines how much an item should grow relative to others.</li>
+    <li><strong>E.10 – flex-shrink:</strong> Defines how items shrink when space is tight.</li>
+    <li><strong>E.11 – flex-basis:</strong> Sets the initial size before growing/shrinking.</li>
+    <li><strong>E.12 – flex (shorthand):</strong> Combines <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> (e.g., <code>flex: 1 1 auto</code>).</li>
+    <li><strong>E.13 – order:</strong> Controls display order regardless of DOM order.</li>
+  </ul>
+</section>
+
+
+<section class="section">
+  <!-- SECTION F: CSS Grid Layout -->
+  <!-- Grid is a two-dimensional layout system that controls rows and columns with precise placement of items. -->
+  <h2>Section F – Grid</h2>
+  <p><em>Note: CSS Grid enables two-dimensional layouts, allowing you to control both rows and columns in a container. It is powerful for creating complex web layouts.</em></p>
+  <ul>
+    <li><strong>F.1 – display: grid;</strong> Defines a grid container and establishes a new grid formatting context.</li>
+    <li><strong>F.2 – grid-template-columns:</strong> Defines the number and size of columns (e.g., <code>200px 1fr 2fr</code>).</li>
+    <li><strong>F.3 – grid-template-rows:</strong> Defines the number and size of rows.</li>
+    <li><strong>F.4 – grid-template:</strong> Shorthand for <code>grid-template-rows</code> and <code>grid-template-columns</code>.</li>
+    <li><strong>F.5 – grid-column:</strong> Specifies the horizontal position of an item (e.g., <code>grid-column: 1 / 3</code>).</li>
+    <li><strong>F.6 – grid-row:</strong> Specifies the vertical position of an item.</li>
+    <li><strong>F.7 – grid-area:</strong> Name and place grid items using template areas or coordinates.</li>
+    <li><strong>F.8 – grid-template-areas:</strong> Define layout regions using named strings.</li>
+    <li><strong>F.9 – grid-auto-rows / grid-auto-columns:</strong> Sets size for rows/columns created implicitly.</li>
+    <li><strong>F.10 – grid-auto-flow:</strong> Controls direction of auto-placement (<code>row</code>, <code>column</code>, or <code>dense</code>).</li>
+    <li><strong>F.11 – gap / row-gap / column-gap:</strong> Controls spacing between tracks.</li>
+    <li><strong>F.12 – justify-items:</strong> Aligns items horizontally in their grid cell.</li>
+    <li><strong>F.13 – align-items:</strong> Aligns items vertically in their grid cell.</li>
+    <li><strong>F.14 – place-items:</strong> Shorthand for <code>align-items</code> and <code>justify-items</code>.</li>
+    <li><strong>F.15 – justify-content:</strong> Aligns the grid container’s content horizontally.</li>
+    <li><strong>F.16 – align-content:</strong> Aligns the grid container’s content vertically.</li>
+    <li><strong>F.17 – place-content:</strong> Shorthand for <code>align-content</code> and <code>justify-content</code>.</li>
+    <li><strong>F.18 – minmax():</strong> Defines a size range using <code>minmax(min, max)</code>.</li>
+    <li><strong>F.19 – repeat():</strong> Repeats track definitions (e.g., <code>repeat(3, 1fr)</code>).</li>
+    <li><strong>F.20 – auto-fit / auto-fill:</strong> Responsive column behavior with <code>repeat()</code> (e.g., <code>repeat(auto-fit, minmax(200px, 1fr))</code>).</li>
+  </ul>
+</section>
+
+
+ <section class="section">
+  <!-- SECTION G: Typography -->
+  <!-- Controls font rendering: typeface, size, weight, spacing, alignment, and text decoration. -->
+  <h2>Section G – Typography</h2>
+  <p><em>Note: This section covers how to control fonts, sizes, spacing, alignment, decoration, and other properties that affect text appearance.</em></p>
+  <ul>
+    <li><strong>G.1 – font-family:</strong> Sets the typeface used (e.g., <code>font-family: Arial, sans-serif;</code>).</li>
+    <li><strong>G.2 – font-size:</strong> Controls the size of text (e.g., <code>16px</code>, <code>1rem</code>).</li>
+    <li><strong>G.3 – font-weight:</strong> Sets boldness (e.g., <code>normal</code>, <code>bold</code>, <code>100–900</code>).</li>
+    <li><strong>G.4 – font-style:</strong> Defines italic or oblique styles.</li>
+    <li><strong>G.5 – font-variant:</strong> Used for small-caps and other typographic variants.</li>
+    <li><strong>G.6 – font:</strong> Shorthand for setting font properties (e.g., <code>font: italic bold 16px/1.5 Arial;</code>).</li>
+    <li><strong>G.7 – line-height:</strong> Sets spacing between lines of text.</li>
+    <li><strong>G.8 – letter-spacing:</strong> Adjusts horizontal spacing between characters.</li>
+    <li><strong>G.9 – word-spacing:</strong> Adjusts spacing between words.</li>
+    <li><strong>G.10 – text-align:</strong> Aligns text (<code>left</code>, <code>right</code>, <code>center</code>, <code>justify</code>).</li>
+    <li><strong>G.11 – text-indent:</strong> Indents the first line of a block.</li>
+    <li><strong>G.12 – text-transform:</strong> Controls capitalization (<code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code>).</li>
+    <li><strong>G.13 – white-space:</strong> Controls how white space is handled (e.g., <code>nowrap</code>, <code>pre</code>).</li>
+    <li><strong>G.14 – direction:</strong> Sets text direction (<code>ltr</code>, <code>rtl</code>).</li>
+    <li><strong>G.15 – unicode-bidi:</strong> Manages complex text direction scenarios.</li>
+    <li><strong>G.16 – writing-mode:</strong> Controls vertical vs horizontal text flow (<code>horizontal-tb</code>, <code>vertical-rl</code>).</li>
+    <li><strong>G.17 – text-decoration:</strong> Adds lines (underline, overline, line-through).</li>
+    <li><strong>G.18 – text-decoration-line / style / color / thickness:</strong> Fine-grained control of decoration appearance.</li>
+    <li><strong>G.19 – text-shadow:</strong> Applies shadow effects to text.</li>
+    <li><strong>G.20 – overflow-wrap (word-wrap):</strong> Allows breaking long words at the edge of a container.</li>
+  </ul>
+</section>
+
+
+  <section class="section">
+  <!-- SECTION H: Colors -->
+  <!-- Controls how color is applied to text, backgrounds, borders, and other elements using color values and functions. -->
+  <h2>Section H – Colors</h2>
+  <p><em>Note: CSS provides multiple ways to define and manipulate color, including named keywords, hexadecimal, RGB(A), HSL(A), and modern color spaces like LAB and LCH.</em></p>
+  <ul>
+    <li><strong>H.1 – color:</strong> Sets the text color of an element.</li>
+    <li><strong>H.2 – background-color:</strong> Sets the background fill color.</li>
+    <li><strong>H.3 – border-color:</strong> Defines the color of an element’s border.</li>
+    <li><strong>H.4 – Named Colors:</strong> Use color keywords (e.g., <code>red</code>, <code>blue</code>, <code>rebeccapurple</code>).</li>
+    <li><strong>H.5 – Hexadecimal:</strong> Color using hex codes like <code>#FF5733</code> or shorthand <code>#333</code>.</li>
+    <li><strong>H.6 – RGB:</strong> Define colors with <code>rgb(red, green, blue)</code> where values are 0–255.</li>
+    <li><strong>H.7 – RGBA:</strong> Adds transparency with <code>rgba(red, green, blue, alpha)</code> where alpha is 0–1.</li>
+    <li><strong>H.8 – HSL:</strong> Define using <code>hsl(hue, saturation%, lightness%)</code>.</li>
+    <li><strong>H.9 – HSLA:</strong> Adds alpha transparency to HSL colors.</li>
+    <li><strong>H.10 – currentColor:</strong> Inherits the element’s computed text color.</li>
+    <li><strong>H.11 – transparent:</strong> Fully transparent color (equivalent to <code>rgba(0,0,0,0)</code>).</li>
+    <li><strong>H.12 – opacity:</strong> Controls transparency of the whole element (not just color).</li>
+    <li><strong>H.13 – color-mix():</strong> Mixes two colors together (e.g., <code>color-mix(in srgb, red 50%, blue)</code>).</li>
+    <li><strong>H.14 – Modern Color Spaces:</strong> <code>lab()</code>, <code>lch()</code>, and <code>oklab()</code> for better perceptual accuracy.</li>
+    <li><strong>H.15 – forced-color-adjust:</strong> Controls how an element behaves in high contrast mode.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION I: Units & Values -->
+  <!-- Covers all CSS units including absolute, relative, percentage, time, angle, resolution, and special keyword values. -->
+  <h2>Section I – Units & Values</h2>
+  <p><em>Note: CSS uses units to express length, time, angle, and more. This section details unit types and common value formats used in style declarations.</em></p>
+  <ul>
+    <li><strong>I.1 – Absolute Length Units:</strong> Fixed units that do not scale:
+      <ul>
+        <li><code>px</code> – Pixels</li>
+        <li><code>pt</code> – Points (1/72 of an inch)</li>
+        <li><code>cm</code>, <code>mm</code> – Centimeters, millimeters</li>
+        <li><code>in</code> – Inches</li>
+        <li><code>pc</code> – Picas (1pc = 12pt)</li>
+      </ul>
+    </li>
+    <li><strong>I.2 – Relative Length Units:</strong> Scale based on context:
+      <ul>
+        <li><code>em</code> – Relative to the element's font-size</li>
+        <li><code>rem</code> – Relative to the root font-size</li>
+        <li><code>%</code> – Percentage of parent value</li>
+        <li><code>vw</code>, <code>vh</code> – Viewport width/height</li>
+        <li><code>vmin</code>, <code>vmax</code> – Smaller/larger of vw and vh</li>
+        <li><code>ex</code>, <code>ch</code> – x-height and 0-width of font</li>
+      </ul>
+    </li>
+    <li><strong>I.3 – Time Units:</strong> For animations and transitions:
+      <ul>
+        <li><code>s</code> – Seconds</li>
+        <li><code>ms</code> – Milliseconds</li>
+      </ul>
+    </li>
+    <li><strong>I.4 – Angle Units:</strong> For rotation and gradients:
+      <ul>
+        <li><code>deg</code> – Degrees</li>
+        <li><code>rad</code> – Radians</li>
+        <li><code>grad</code> – Gradians</li>
+        <li><code>turn</code> – Full turns</li>
+      </ul>
+    </li>
+    <li><strong>I.5 – Resolution Units:</strong> For media queries:
+      <ul>
+        <li><code>dpi</code> – Dots per inch</li>
+        <li><code>dpcm</code> – Dots per cm</li>
+        <li><code>dppx</code> – Dots per pixel</li>
+      </ul>
+    </li>
+    <li><strong>I.6 – Frequency Units:</strong> Rare, for aural styles:
+      <ul>
+        <li><code>Hz</code>, <code>kHz</code></li>
+      </ul>
+    </li>
+    <li><strong>I.7 – CSS Keywords (Special Values):</strong>
+      <ul>
+        <li><code>auto</code> – Automatically computed</li>
+        <li><code>initial</code> – Resets to default</li>
+        <li><code>inherit</code> – Inherit from parent</li>
+        <li><code>unset</code> – Resets based on inheritance rules</li>
+        <li><code>revert</code> – Reverts to user-agent style</li>
+      </ul>
+    </li>
+    <li><strong>I.8 – calc():</strong> Combines units with math (e.g., <code>width: calc(100% - 2rem)</code>).</li>
+    <li><strong>I.9 – clamp():</strong> Sets min, ideal, and max values (e.g., <code>clamp(1rem, 2vw, 2rem)</code>).</li>
+    <li><strong>I.10 – min() / max():</strong> Returns the smallest or largest of supplied values.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION J: Backgrounds -->
+  <!-- Controls background color, image, position, repeat, attachment, and advanced layering effects. -->
+  <h2>Section J – Backgrounds</h2>
+  <p><em>Note: CSS backgrounds define the fill behind an element’s content and can include color, images, gradients, and layered effects.</em></p>
+  <ul>
+    <li><strong>J.1 – background-color:</strong> Sets the background color.</li>
+    <li><strong>J.2 – background-image:</strong> Applies one or more images (e.g., <code>url('image.png')</code>).</li>
+    <li><strong>J.3 – background-repeat:</strong> Controls tiling behavior:
+      <ul>
+        <li><code>repeat</code>, <code>repeat-x</code>, <code>repeat-y</code>, <code>no-repeat</code></li>
+      </ul>
+    </li>
+    <li><strong>J.4 – background-position:</strong> Sets starting position (e.g., <code>top left</code>, <code>center</code>).</li>
+    <li><strong>J.5 – background-size:</strong> Defines image scaling:
+      <ul>
+        <li><code>auto</code>, <code>cover</code>, <code>contain</code>, or custom values (e.g., <code>100% 50%</code>)</li>
+      </ul>
+    </li>
+    <li><strong>J.6 – background-attachment:</strong> Controls scroll behavior:
+      <ul>
+        <li><code>scroll</code>, <code>fixed</code>, <code>local</code></li>
+      </ul>
+    </li>
+    <li><strong>J.7 – background-clip:</strong> Defines painting area:
+      <ul>
+        <li><code>border-box</code>, <code>padding-box</code>, <code>content-box</code></li>
+      </ul>
+    </li>
+    <li><strong>J.8 – background-origin:</strong> Sets positioning reference box:
+      <ul>
+        <li><code>border-box</code>, <code>padding-box</code>, <code>content-box</code></li>
+      </ul>
+    </li>
+    <li><strong>J.9 – background-blend-mode:</strong> Blends background layers (e.g., <code>multiply</code>, <code>screen</code>, <code>overlay</code>).</li>
+    <li><strong>J.10 – background (shorthand):</strong> Combines multiple background properties into one line.</li>
+    <li><strong>J.11 – Multiple Background Layers:</strong> Use commas to define stacked images or effects (e.g., <code>url(a), url(b)</code>).</li>
+    <li><strong>J.12 – Gradients:</strong> Supported as background-image:
+      <ul>
+        <li><code>linear-gradient()</code>, <code>radial-gradient()</code>, <code>conic-gradient()</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION K: Borders & Outlines -->
+  <!-- Borders define visual edges and occupy space. Outlines are visual indicators drawn outside the element, often used for focus states. -->
+  <h2>Section K – Borders & Outlines</h2>
+  <p><em>Note: Borders form part of the element box and control thickness, color, and style. Outlines are external indicators, useful for accessibility and focus states.</em></p>
+  <ul>
+    <li><strong>K.1 – border-width:</strong> Sets the thickness of the border on all sides.</li>
+    <li><strong>K.2 – border-style:</strong> Defines the line style (e.g., <code>solid</code>, <code>dashed</code>, <code>dotted</code>, <code>double</code>, <code>none</code>).</li>
+    <li><strong>K.3 – border-color:</strong> Sets the color of the border.</li>
+    <li><strong>K.4 – border:</strong> Shorthand for width, style, and color (e.g., <code>1px solid black</code>).</li>
+    <li><strong>K.5 – border-top / right / bottom / left:</strong> Individual side borders.</li>
+    <li><strong>K.6 – border-radius:</strong> Rounds the corners of the element box (e.g., <code>border-radius: 8px</code>).</li>
+    <li><strong>K.7 – outline:</strong> Draws a line outside the element box; does not affect layout.</li>
+    <li><strong>K.8 – outline-width:</strong> Thickness of the outline.</li>
+    <li><strong>K.9 – outline-style:</strong> Line style of the outline (same as border-style options).</li>
+    <li><strong>K.10 – outline-color:</strong> Color of the outline.</li>
+    <li><strong>K.11 – outline-offset:</strong> Distance between outline and border edge.</li>
+    <li><strong>K.12 – border-collapse (tables):</strong> Controls border merging in tables (<code>collapse</code> vs <code>separate</code>).</li>
+    <li><strong>K.13 – border-spacing (tables):</strong> Sets space between table cell borders when separated.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION L: Sizing -->
+  <!-- Controls the physical dimensions of elements, including max/min constraints, content-based sizing, and box-model interaction. -->
+  <h2>Section L – Sizing</h2>
+  <p><em>Note: CSS sizing properties allow control over the rendered dimensions of elements, including width, height, and constraints like min/max values.</em></p>
+  <ul>
+    <li><strong>L.1 – width:</strong> Sets the element's horizontal dimension (e.g., <code>width: 200px</code>).</li>
+    <li><strong>L.2 – height:</strong> Sets the element’s vertical dimension.</li>
+    <li><strong>L.3 – min-width / min-height:</strong> Defines the minimum size an element can shrink to.</li>
+    <li><strong>L.4 – max-width / max-height:</strong> Defines the maximum size an element can grow to.</li>
+    <li><strong>L.5 – auto:</strong> Allows the browser to calculate size based on content or layout context.</li>
+    <li><strong>L.6 – fit-content:</strong> Fits to the content’s intrinsic size (with limits).</li>
+    <li><strong>L.7 – max-content:</strong> Element grows to fit longest unbreakable content.</li>
+    <li><strong>L.8 – min-content:</strong> Shrinks to smallest size without overflow.</li>
+    <li><strong>L.9 – intrinsic sizing keywords:</strong> Uses <code>min-content</code>, <code>max-content</code>, <code>fit-content</code> to define size behavior.</li>
+    <li><strong>L.10 – aspect-ratio:</strong> Sets or locks an element’s width-to-height ratio (e.g., <code>aspect-ratio: 16 / 9</code>).</li>
+    <li><strong>L.11 – box-sizing:</strong> Affects how width and height include padding/border:
+      <ul>
+        <li><code>content-box</code> – Width excludes padding/border</li>
+        <li><code>border-box</code> – Width includes padding/border</li>
+      </ul>
+    </li>
+    <li><strong>L.12 – inline-size / block-size:</strong> Logical (writing-mode aware) sizing alternatives for width/height.</li>
+  </ul>
+</section>
+
+    
+   <section class="section">
+  <!-- SECTION M: Spacing -->
+  <!-- Controls interior (padding) and exterior (margin) spacing around elements. Includes logical properties and shorthand syntax. -->
+  <h2>Section M – Spacing</h2>
+  <p><em>Note: CSS spacing properties control both internal space (padding) and external space (margin) around elements. Logical spacing respects writing direction.</em></p>
+  <ul>
+    <li><strong>M.1 – margin:</strong> Creates space outside an element's border (e.g., <code>margin: 16px</code>).</li>
+    <li><strong>M.2 – margin-top / right / bottom / left:</strong> Sets margins on individual sides.</li>
+    <li><strong>M.3 – margin (shorthand):</strong> Supports up to 4 values (top, right, bottom, left).</li>
+    <li><strong>M.4 – margin: auto:</strong> Enables automatic centering in block layout.</li>
+    <li><strong>M.5 – padding:</strong> Creates space between content and border.</li>
+    <li><strong>M.6 – padding-top / right / bottom / left:</strong> Sets padding per side.</li>
+    <li><strong>M.7 – padding (shorthand):</strong> Accepts up to 4 values like margin shorthand.</li>
+    <li><strong>M.8 – logical margin & padding:</strong> Writing-mode aware alternatives:
+      <ul>
+        <li><code>margin-inline-start</code>, <code>margin-block-end</code></li>
+        <li><code>padding-inline</code>, <code>padding-block</code></li>
+      </ul>
+    </li>
+    <li><strong>M.9 – negative margins:</strong> Pull elements closer by setting <code>margin: -value</code>.</li>
+    <li><strong>M.10 – margin collapse:</strong> Vertical margins of adjacent blocks may collapse into one.</li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION N: Layout Strategies -->
+  <!-- Describes various layout modes and techniques for organizing elements in modern responsive designs. -->
+  <h2>Section N – Layout Strategies</h2>
+  <p><em>Note: CSS layout strategies provide ways to arrange elements on the page using different models like block, flexbox, grid, and absolute positioning. Choosing the right strategy is key for responsive, maintainable layouts.</em></p>
+  <ul>
+    <li><strong>N.1 – Block Layout (Normal Flow):</strong> Default layout behavior for block-level and inline elements.</li>
+    <li><strong>N.2 – Flex Layout:</strong> One-dimensional layout with alignment and distribution (see Section E).</li>
+    <li><strong>N.3 – Grid Layout:</strong> Two-dimensional layout with explicit row/column control (see Section F).</li>
+    <li><strong>N.4 – Positioning Layout:</strong> Uses <code>position: absolute/fixed/relative/sticky</code> to take elements out of flow or adjust their stack.</li>
+    <li><strong>N.5 – Float Layout:</strong> Legacy layout using <code>float</code> and <code>clear</code> (not recommended for main structure).</li>
+    <li><strong>N.6 – Table Layout:</strong> Simulates HTML tables using <code>display: table</code>, <code>table-row</code>, etc.</li>
+    <li><strong>N.7 – Multi-column Layout:</strong> Creates newspaper-style columns using <code>column-count</code> and <code>column-gap</code>.</li>
+    <li><strong>N.8 – Container Queries:</strong> Allows layout behavior based on parent container’s size (see Section AG).</li>
+    <li><strong>N.9 – Responsive Design:</strong> Combines units like %, vw/vh, media queries, flex/grid, and content-aware sizing for cross-device layouts.</li>
+    <li><strong>N.10 – Intrinsic Layouts:</strong> Use content-based sizing strategies with <code>min-content</code>, <code>max-content</code>, and <code>auto</code>.</li>
+    <li><strong>N.11 – Layered Layout (z-index):</strong> Uses stacking contexts and z-index for visual layering (see Section T).</li>
+    <li><strong>N.12 – Isolation:</strong> Uses <code>isolation: isolate</code> to create new stacking contexts when needed.</li>
+  </ul>
+</section>
+
+
+ <section class="section">
+  <!-- SECTION O: Media Queries -->
+  <!-- Enables responsive styling based on device and environment conditions like screen width, height, resolution, or type. -->
+  <h2>Section O – Media Queries</h2>
+  <p><em>Note: Media queries apply conditional CSS rules depending on the viewport or device. They're essential for creating responsive and accessible designs.</em></p>
+  <ul>
+    <li><strong>O.1 – Basic Syntax:</strong>
+      <pre><code>@media (condition) { selector { property: value; } }</code></pre>
+    </li>
+    <li><strong>O.2 – Common Features:</strong>
+      <ul>
+        <li><code>min-width</code> / <code>max-width</code></li>
+        <li><code>min-height</code> / <code>max-height</code></li>
+        <li><code>orientation</code>: <code>portrait</code> or <code>landscape</code></li>
+        <li><code>resolution</code>: e.g., <code>300dpi</code></li>
+        <li><code>aspect-ratio</code>: e.g., <code>16/9</code></li>
+        <li><code>hover</code>: Whether the user can hover with input</li>
+        <li><code>pointer</code>: e.g., <code>fine</code>, <code>coarse</code></li>
+      </ul>
+    </li>
+    <li><strong>O.3 – Example (min-width):</strong>
+      <pre><code>@media (min-width: 768px) {
+  body { font-size: 18px; }
+}</code></pre>
+    </li>
+    <li><strong>O.4 – Combining Conditions:</strong> Use <code>and</code>, <code>not</code>, <code>only</code>:
+      <ul>
+        <li><code>@media only screen and (min-width: 1024px)</code></li>
+        <li><code>@media not print</code></li>
+      </ul>
+    </li>
+    <li><strong>O.5 – Media Types:</strong> <code>screen</code>, <code>print</code>, <code>speech</code>, <code>all</code></li>
+    <li><strong>O.6 – Range Contexts:</strong> New syntax: <code>(width &gt; 400px)</code>, <code>(300px &lt;= width &lt;= 800px)</code></li>
+    <li><strong>O.7 – Media Query Shorthand (Level 4):</strong> Advanced form: <code>@media (width &gt;= 768px)</code></li>
+    <li><strong>O.8 – prefers-color-scheme:</strong> Detects dark/light mode preference.</li>
+    <li><strong>O.9 – prefers-reduced-motion:</strong> Respects user's motion reduction settings.</li>
+    <li><strong>O.10 – Responsive Utility:</strong> Combine media queries with flex/grid for full responsiveness.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION P: Transforms -->
+  <!-- Applies visual transformations to elements such as rotate, scale, translate, and skew. -->
+  <h2>Section P – Transforms</h2>
+  <p><em>Note: CSS transforms let you manipulate elements in 2D or 3D space. Transformed elements remain in the same flow but can be visually moved, rotated, scaled, or skewed.</em></p>
+  <ul>
+    <li><strong>P.1 – transform (shorthand):</strong> Applies multiple transform functions together.
+      <pre><code>transform: rotate(45deg) scale(1.2);</code></pre>
+    </li>
+    <li><strong>P.2 – translate(x, y):</strong> Moves the element along the X and Y axes.
+      <ul>
+        <li><code>translateX(50px)</code></li>
+        <li><code>translateY(-20%)</code></li>
+      </ul>
+    </li>
+    <li><strong>P.3 – scale(x, y):</strong> Resizes the element.
+      <ul>
+        <li><code>scale(1.5)</code> – Enlarges</li>
+        <li><code>scale(0.8)</code> – Shrinks</li>
+        <li><code>scaleX()</code>, <code>scaleY()</code></li>
+      </ul>
+    </li>
+    <li><strong>P.4 – rotate(angle):</strong> Rotates the element (e.g., <code>rotate(45deg)</code>, <code>rotate(-0.25turn)</code>).</li>
+    <li><strong>P.5 – skew(x, y):</strong> Shears the element along the X and/or Y axis.
+      <ul>
+        <li><code>skewX(20deg)</code>, <code>skewY(-10deg)</code></li>
+      </ul>
+    </li>
+    <li><strong>P.6 – matrix(a, b, c, d, e, f):</strong> Applies all transform functions using a transformation matrix (advanced).</li>
+    <li><strong>P.7 – transform-origin:</strong> Sets the point around which transforms are applied (e.g., <code>center</code>, <code>top left</code>, <code>50% 100%</code>).</li>
+    <li><strong>P.8 – transform-box:</strong> Affects the bounding box used for transforms (e.g., <code>fill-box</code>, <code>border-box</code>).</li>
+    <li><strong>P.9 – perspective:</strong> Defines depth for 3D transforms.</li>
+    <li><strong>P.10 – backface-visibility:</strong> Controls whether the back side of a transformed element is visible.</li>
+    <li><strong>P.11 – 3D Transforms:</strong>
+      <ul>
+        <li><code>rotateX()</code>, <code>rotateY()</code>, <code>rotateZ()</code></li>
+        <li><code>translateZ()</code>, <code>scaleZ()</code></li>
+        <li><code>perspective()</code>, <code>transform-style: preserve-3d</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION Q: Transitions & Animations -->
+  <!-- Provides smooth property changes using transitions and keyframe-driven animations. -->
+  <h2>Section Q – Transitions & Animations</h2>
+  <p><em>Note: CSS transitions animate changes between property values, while animations allow control over multiple stages via keyframes.</em></p>
+  <ul>
+    <li><strong>Q.1 – transition-property:</strong> Specifies the CSS property to animate (e.g., <code>color</code>, <code>transform</code>).</li>
+    <li><strong>Q.2 – transition-duration:</strong> How long the transition lasts (e.g., <code>0.5s</code>, <code>300ms</code>).</li>
+    <li><strong>Q.3 – transition-timing-function:</strong> Controls acceleration curve (e.g., <code>ease</code>, <code>linear</code>, <code>ease-in-out</code>, <code>cubic-bezier()</code>).</li>
+    <li><strong>Q.4 – transition-delay:</strong> Sets the delay before the transition starts.</li>
+    <li><strong>Q.5 – transition (shorthand):</strong> Combines all transition properties:
+      <pre><code>transition: transform 0.3s ease-in-out;</code></pre>
+    </li>
+    <li><strong>Q.6 – @keyframes:</strong> Defines intermediate steps of an animation:
+      <pre><code>@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}</code></pre>
+    </li>
+    <li><strong>Q.7 – animation-name:</strong> The keyframes rule to use.</li>
+    <li><strong>Q.8 – animation-duration:</strong> Total length of one animation cycle.</li>
+    <li><strong>Q.9 – animation-timing-function:</strong> Acceleration curve (same options as transitions).</li>
+    <li><strong>Q.10 – animation-delay:</strong> Start delay before the animation begins.</li>
+    <li><strong>Q.11 – animation-iteration-count:</strong> Number of times to run (e.g., <code>infinite</code>, <code>3</code>).</li>
+    <li><strong>Q.12 – animation-direction:</strong> Direction of animation (<code>normal</code>, <code>reverse</code>, <code>alternate</code>).</li>
+    <li><strong>Q.13 – animation-fill-mode:</strong> Defines how styles apply before/after animation (<code>forwards</code>, <code>backwards</code>, <code>both</code>).</li>
+    <li><strong>Q.14 – animation-play-state:</strong> Allows pausing and resuming animations (<code>running</code>, <code>paused</code>).</li>
+    <li><strong>Q.15 – animation (shorthand):</strong> Combines all animation properties:
+      <pre><code>animation: fade 2s ease-in-out 0s 1 normal forwards;</code></pre>
+    </li>
+  </ul>
+</section>
+
+
+  <section class="section">
+  <!-- SECTION R: Custom Properties (Variables) -->
+  <!-- Enables reusable design tokens using --custom-name syntax, scoped to root or elements, and accessed with var(). -->
+  <h2>Section R – Custom Properties (Variables)</h2>
+  <p><em>Note: CSS variables allow you to define and reuse consistent values across your stylesheet. They can be scoped to elements and updated dynamically.</em></p>
+  <ul>
+    <li><strong>R.1 – Declaration:</strong> Custom properties are declared using a name prefixed with <code>--</code>:
+      <pre><code>:root {
+  --primary-color: #3366ff;
+}</code></pre>
+    </li>
+    <li><strong>R.2 – Usage:</strong> Use <code>var()</code> to reference a custom property:
+      <pre><code>color: var(--primary-color);</code></pre>
+    </li>
+    <li><strong>R.3 – Fallback Values:</strong> Provide a default if the variable isn’t defined:
+      <pre><code>color: var(--accent, #999);</code></pre>
+    </li>
+    <li><strong>R.4 – Scope:</strong> Custom properties inherit through the DOM tree. You can redefine them on specific elements.</li>
+    <li><strong>R.5 – Dynamic Themes:</strong> Easily switch themes by overriding root variables (e.g., light/dark mode).</li>
+    <li><strong>R.6 – Example – Button Theme:</strong>
+      <pre><code>:root {
+  --btn-bg: #444;
+  --btn-text: #fff;
+}
+
+button {
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+}</code></pre>
+    </li>
+    <li><strong>R.7 – Invalid Reference:</strong> If a variable is missing and no fallback is provided, the property becomes invalid.</li>
+    <li><strong>R.8 – calc() + var():</strong> Custom properties can be used inside functions like <code>calc()</code>.</li>
+    <li><strong>R.9 – Performance:</strong> Custom properties are resolved at runtime, allowing updates with JavaScript or user settings (without JS here, still useful).</li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION S: Pseudo-Classes & Pseudo-Elements -->
+  <!-- Enables styling based on element state or structural position (:hover, :nth-child), and insertion of virtual content (::before, ::after). -->
+  <h2>Section S – Pseudo-Classes & Pseudo-Elements</h2>
+  <p><em>Note: Pseudo-classes target elements based on behavior, position, or user interaction. Pseudo-elements create abstract parts of elements to style or populate.</em></p>
+  <ul>
+    <li><strong>S.1 – Pseudo-Classes (User Interaction):</strong>
+      <ul>
+        <li><code>:hover</code> – When the user hovers the mouse</li>
+        <li><code>:focus</code> – When the element is focused</li>
+        <li><code>:active</code> – While the element is being clicked</li>
+        <li><code>:visited</code> – Visited link</li>
+        <li><code>:checked</code> – Checked input/checkbox</li>
+        <li><code>:disabled</code>, <code>:enabled</code>, <code>:read-only</code></li>
+      </ul>
+    </li>
+    <li><strong>S.2 – Pseudo-Classes (Structural):</strong>
+      <ul>
+        <li><code>:first-child</code>, <code>:last-child</code></li>
+        <li><code>:nth-child(n)</code>, <code>:nth-of-type(n)</code></li>
+        <li><code>:only-child</code>, <code>:empty</code></li>
+        <li><code>:not(selector)</code> – Negation pseudo-class</li>
+      </ul>
+    </li>
+    <li><strong>S.3 – Pseudo-Classes (UI & State):</strong>
+      <ul>
+        <li><code>:required</code>, <code>:optional</code></li>
+        <li><code>:valid</code>, <code>:invalid</code></li>
+        <li><code>:in-range</code>, <code>:out-of-range</code></li>
+        <li><code>:target</code> – Matches the target of the current URL hash</li>
+      </ul>
+    </li>
+    <li><strong>S.4 – Pseudo-Elements:</strong>
+      <ul>
+        <li><code>::before</code> – Inserts content before an element</li>
+        <li><code>::after</code> – Inserts content after an element</li>
+        <li><code>::first-letter</code>, <code>::first-line</code></li>
+        <li><code>::selection</code> – Styles highlighted text</li>
+        <li><code>::placeholder</code> – Styles input placeholder text</li>
+        <li><code>::marker</code> – List item bullets</li>
+      </ul>
+    </li>
+    <li><strong>S.5 – Content with ::before/::after:</strong>
+      <pre><code>p::before {
+  content: "→ ";
+  color: red;
+}</code></pre>
+    </li>
+    <li><strong>S.6 – Combined Use:</strong> You can combine pseudo-classes and pseudo-elements:
+      <pre><code>a:hover::after {
+  content: " (external)";
+}</code></pre>
+    </li>
+  </ul>
+</section>
+
+
+  <section class="section">
+  <!-- SECTION T: Z-Index & Stacking -->
+  <!-- Controls vertical layering of elements. Uses z-index within stacking contexts to determine which element appears on top. -->
+  <h2>Section T – Z-Index & Stacking</h2>
+  <p><em>Note: The `z-index` property determines the stack order of elements along the Z axis. Higher values appear on top. Only works on positioned or flex/grid children.</em></p>
+  <ul>
+    <li><strong>T.1 – z-index:</strong> Controls stack level (e.g., <code>z-index: 10;</code>). Higher values appear above lower ones.</li>
+    <li><strong>T.2 – Prerequisite – Positioning:</strong> Only elements with <code>position: relative</code>, <code>absolute</code>, <code>fixed</code>, or <code>sticky</code> participate in `z-index` stacking.</li>
+    <li><strong>T.3 – Auto (default):</strong> Inherits stacking order from parent or natural order of appearance.</li>
+    <li><strong>T.4 – Stacking Contexts:</strong> New stacking contexts are created by:
+      <ul>
+        <li>Positioned elements with `z-index`</li>
+        <li>Elements with `opacity` less than 1</li>
+        <li>CSS properties like `transform`, `filter`, `perspective`, `isolation: isolate`, `will-change`</li>
+        <li>Flex/grid children with `z-index`</li>
+      </ul>
+    </li>
+    <li><strong>T.5 – Nested Stacking:</strong> `z-index` only affects siblings within the same stacking context.</li>
+    <li><strong>T.6 – Overlap Behavior:</strong> Later elements in the HTML stack above earlier ones if `z-index` is equal or `auto`.</li>
+    <li><strong>T.7 – Practical Tip:</strong> Avoid high arbitrary values. Instead, control layering through clear hierarchy and component isolation.</li>
+    <li><strong>T.8 – Example:</strong>
+      <pre><code>.box1 {
+  position: absolute;
+  z-index: 1;
+}
+.box2 {
+  position: absolute;
+  z-index: 5;
+}</code></pre>
+    </li>
+    <li><strong>T.9 – isolation:</strong> Use <code>isolation: isolate;</code> to create a new stacking context deliberately.</li>
+    <li><strong>T.10 – Debugging Tools:</strong> Use browser dev tools to inspect stacking contexts visually.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION U: Overflow & Clipping -->
+  <!-- Controls content behavior when it exceeds the boundaries of its container. Includes scroll, hidden, and clipping settings. -->
+  <h2>Section U – Overflow & Clipping</h2>
+  <p><em>Note: CSS overflow controls whether content that exceeds its container is visible, hidden, clipped, or scrollable. Clipping provides finer control over visible regions.</em></p>
+  <ul>
+    <li><strong>U.1 – overflow:</strong> Applies to both axes:
+      <ul>
+        <li><code>visible</code> – Content spills out (default)</li>
+        <li><code>hidden</code> – Overflow is clipped, no scroll</li>
+        <li><code>scroll</code> – Always shows scrollbars</li>
+        <li><code>auto</code> – Scrollbars appear only when needed</li>
+      </ul>
+    </li>
+    <li><strong>U.2 – overflow-x / overflow-y:</strong> Sets overflow independently for horizontal and vertical axes.</li>
+    <li><strong>U.3 – text-overflow:</strong> Controls behavior of clipped inline text (e.g., <code>ellipsis</code>).
+      <pre><code>white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;</code></pre>
+    </li>
+    <li><strong>U.4 – clip-path:</strong> Defines a visible region of an element using shapes or paths:
+      <ul>
+        <li><code>circle()</code>, <code>ellipse()</code>, <code>polygon()</code>, <code>inset()</code></li>
+      </ul>
+    </li>
+    <li><strong>U.5 – clip:</strong> Deprecated property used with <code>position: absolute</code>; replaced by `clip-path`.</li>
+    <li><strong>U.6 – scroll-behavior:</strong> Enables smooth or instant scrolling behavior.
+      <pre><code>html {
+  scroll-behavior: smooth;
+}</code></pre>
+    </li>
+    <li><strong>U.7 – overflow-anchor:</strong> Prevents scroll position jumps when content updates dynamically.</li>
+    <li><strong>U.8 – overflow-wrap (word-wrap):</strong> Allows breaking long words within content.
+      <ul>
+        <li><code>normal</code>, <code>break-word</code></li>
+      </ul>
+    </li>
+    <li><strong>U.9 – white-space:</strong> Controls how whitespace is handled (e.g., <code>nowrap</code>, <code>pre</code>, <code>pre-wrap</code>).</li>
+    <li><strong>U.10 – contain: layout / paint:</strong> Ensures an element does not affect outside layout or paint, often used with overflow containment.</li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION V: Visibility & Opacity -->
+  <!-- Controls whether elements are rendered or visible, and how transparent they appear. Includes non-removal display states and pointer control. -->
+  <h2>Section V – Visibility & Opacity</h2>
+  <p><em>Note: These properties control whether an element is visible, how it participates in layout, and its visual transparency without affecting DOM structure.</em></p>
+  <ul>
+    <li><strong>V.1 – visibility:</strong> Toggles element visibility while preserving layout space.
+      <ul>
+        <li><code>visible</code> – Element is shown (default)</li>
+        <li><code>hidden</code> – Element is invisible but still takes up space</li>
+        <li><code>collapse</code> – For table rows/cells only; hides without space</li>
+      </ul>
+    </li>
+    <li><strong>V.2 – display: none:</strong> Completely removes element from layout and rendering.</li>
+    <li><strong>V.3 – opacity:</strong> Controls transparency level from 0 (fully transparent) to 1 (fully opaque).
+      <pre><code>opacity: 0.5;</code></pre>
+    </li>
+    <li><strong>V.4 – pointer-events:</strong> Controls whether the element can receive mouse/pointer events.
+      <ul>
+        <li><code>pointer-events: none;</code> – Disables interaction</li>
+        <li><code>pointer-events: auto;</code> – Enables default behavior</li>
+      </ul>
+    </li>
+    <li><strong>V.5 – user-select:</strong> Determines if content is selectable.
+      <ul>
+        <li><code>none</code>, <code>text</code>, <code>all</code></li>
+      </ul>
+    </li>
+    <li><strong>V.6 – visibility vs display:</strong> <code>visibility: hidden</code> keeps layout space; <code>display: none</code> removes it entirely.</li>
+    <li><strong>V.7 – accessibility note:</strong> Hidden elements (via `display: none` or `visibility: hidden`) are not read by screen readers unless managed carefully with ARIA.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION W: Cursors & User Interaction -->
+  <!-- Controls how the pointer behaves, whether elements can be interacted with or selected. -->
+  <h2>Section W – Cursors & User Interaction</h2>
+  <p><em>Note: These properties define how the pointer appears when hovered over an element, and whether users can interact or select its content.</em></p>
+  <ul>
+    <li><strong>W.1 – cursor:</strong> Changes the mouse pointer type.
+      <ul>
+        <li><code>pointer</code> – Hand (for links/buttons)</li>
+        <li><code>default</code> – Arrow</li>
+        <li><code>text</code> – I-beam for text fields</li>
+        <li><code>move</code>, <code>grab</code>, <code>grabbing</code></li>
+        <li><code>crosshair</code>, <code>help</code>, <code>wait</code>, <code>progress</code></li>
+        <li><code>not-allowed</code>, <code>no-drop</code>, <code>none</code></li>
+        <li><code>url(custom.cur), auto</code> – Use custom image cursor</li>
+      </ul>
+    </li>
+    <li><strong>W.2 – pointer-events:</strong> Enables/disables click or hover on elements.
+      <ul>
+        <li><code>none</code> – Element is invisible to the pointer</li>
+        <li><code>auto</code> – Default interaction behavior</li>
+      </ul>
+    </li>
+    <li><strong>W.3 – user-select:</strong> Determines whether text or elements can be selected by the user.
+      <ul>
+        <li><code>none</code>, <code>text</code>, <code>all</code>, <code>auto</code></li>
+      </ul>
+    </li>
+    <li><strong>W.4 – touch-action:</strong> Controls how touch devices handle gestures on an element.
+      <ul>
+        <li><code>none</code> – Prevent all gestures</li>
+        <li><code>manipulation</code> – Allows scroll, pinch, etc.</li>
+      </ul>
+    </li>
+    <li><strong>W.5 – caret-color:</strong> Changes the blinking cursor color in inputs and editable elements.</li>
+    <li><strong>W.6 – outline-style:</strong> Controls keyboard focus visibility (e.g., tab navigation).</li>
+    <li><strong>W.7 – :focus-visible:</strong> Targets keyboard-only focus, avoiding focus rings for mouse clicks.</li>
+    <li><strong>W.8 – Disabled States:</strong> Use <code>:disabled</code> to style and restrict user interaction.</li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION X: Print Styles -->
+  <!-- Controls how content is styled for printing using @media print and page break properties. -->
+  <h2>Section X – Print Styles</h2>
+  <p><em>Note: CSS print styles ensure documents are formatted correctly when printed, removing unnecessary elements and managing layout breaks across pages.</em></p>
+  <ul>
+    <li><strong>X.1 – @media print:</strong> Target print-specific styles using a media query:
+      <pre><code>@media print {
+  body {
+    font-size: 12pt;
+    color: black;
+  }
+}</code></pre>
+    </li>
+    <li><strong>X.2 – Hiding Non-Print Elements:</strong> Prevent certain elements (e.g., nav, ads) from appearing in print:
+      <pre><code>@media print {
+  .no-print {
+    display: none;
+  }
+}</code></pre>
+    </li>
+    <li><strong>X.3 – Forcing Page Breaks:</strong> Use page-break properties to control content flow:
+      <ul>
+        <li><code>page-break-before: always;</code></li>
+        <li><code>page-break-after: avoid;</code></li>
+        <li><code>break-inside: avoid;</code> – Prevents breaking within elements like tables or images</li>
+      </ul>
+    </li>
+    <li><strong>X.4 – @page:</strong> Define global page setup for size and margins:
+      <pre><code>@page {
+  size: A4;
+  margin: 1in;
+}</code></pre>
+    </li>
+    <li><strong>X.5 – Print Colors:</strong> Use print-safe color contrasts (avoid neon/transparencies) and ensure high contrast for accessibility.</li>
+    <li><strong>X.6 – Font Considerations:</strong> Use system fonts or include fallback for better print consistency.</li>
+    <li><strong>X.7 – Links in Print:</strong> Use pseudo-elements to print full URLs:
+      <pre><code>a::after {
+  content: " (" attr(href) ")";
+}</code></pre>
+    </li>
+    <li><strong>X.8 – Avoid Fixed Heights/Widths:</strong> Let content flow naturally for different paper sizes.</li>
+    <li><strong>X.9 – Common Print Targets:</strong> <code>header</code>, <code>main</code>, <code>article</code>, <code>footer</code>, <code>figure</code></li>
+    <li><strong>X.10 – Page-Break Shorthand (New):</strong> <code>break-before</code>, <code>break-after</code>, <code>break-inside</code> now replace `page-break-*` (deprecated).</li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION Y: Accessibility (A11y) -->
+  <!-- Covers CSS techniques to improve accessibility and usability for all users, including screen reader compatibility and visual adjustments. -->
+  <h2>Section Y – Accessibility (A11y)</h2>
+  <p><em>Note: While semantic HTML is key for accessibility, CSS can assist with focus visibility, motion control, color contrast, and screen reader-friendly practices.</em></p>
+  <ul>
+    <li><strong>Y.1 – focus-visible:</strong> Highlights focused elements only when keyboard is used:
+      <pre><code>button:focus-visible {
+  outline: 2px solid #005fcc;
+}</code></pre>
+    </li>
+    <li><strong>Y.2 – outline vs border:</strong> Use <code>outline</code> for focus styles so it doesn't shift layout like <code>border</code>.</li>
+    <li><strong>Y.3 – prefers-reduced-motion:</strong> Respect user settings to reduce animation:
+      <pre><code>@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}</code></pre>
+    </li>
+    <li><strong>Y.4 – visually-hidden (screen reader only):</strong>
+      <pre><code>.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  white-space: nowrap;
+}</code></pre>
+      <p>This hides content visually while keeping it accessible to screen readers.</p>
+    </li>
+    <li><strong>Y.5 – high contrast support:</strong> Avoid low-contrast color combinations; test for at least 4.5:1 contrast ratio for normal text.</li>
+    <li><strong>Y.6 – forced colors mode (Windows):</strong> Add support with <code>@media (forced-colors: active)</code>.</li>
+    <li><strong>Y.7 – font-size units:</strong> Use relative units like <code>em</code>, <code>rem</code> for scalable text.</li>
+    <li><strong>Y.8 – text spacing guidelines:</strong> Avoid text overlapping when user increases spacing settings (see WCAG 2.1 success criterion 1.4.12).</li>
+    <li><strong>Y.9 – focus order management:</strong> Do not change visual order with CSS (e.g., <code>order</code> in flexbox) unless it matches DOM reading order.</li>
+    <li><strong>Y.10 – aria-hidden:</strong> Use HTML's <code>aria-hidden="true"</code> for elements styled as hidden to assist screen readers.</li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION Z: Shorthand Properties -->
+  <!-- Enables compact syntax by combining multiple longhand properties into one declaration. -->
+  <h2>Section Z – Shorthand Properties</h2>
+  <p><em>Note: Shorthand properties group related CSS properties into a single declaration, reducing repetition and improving maintainability. However, omitted values reset to their defaults.</em></p>
+  <ul>
+    <li><strong>Z.1 – margin / padding:</strong>
+      <pre><code>margin: 10px 20px 30px 40px; /* top right bottom left */</code></pre>
+    </li>
+    <li><strong>Z.2 – border:</strong>
+      <pre><code>border: 1px solid #333;</code></pre>
+    </li>
+    <li><strong>Z.3 – font:</strong>
+      <pre><code>font: italic small-caps 700 16px/1.5 'Roboto', sans-serif;</code></pre>
+      <p>⚠ Must include <code>font-size</code> and <code>font-family</code> to be valid.</p>
+    </li>
+    <li><strong>Z.4 – background:</strong>
+      <pre><code>background: #000 url(bg.png) no-repeat center/cover;</code></pre>
+    </li>
+    <li><strong>Z.5 – transition:</strong>
+      <pre><code>transition: all 0.3s ease-in-out;</code></pre>
+    </li>
+    <li><strong>Z.6 – animation:</strong>
+      <pre><code>animation: fadeIn 2s ease-out 0s 1 normal both;</code></pre>
+    </li>
+    <li><strong>Z.7 – outline:</strong>
+      <pre><code>outline: 2px dotted red;</code></pre>
+    </li>
+    <li><strong>Z.8 – flex-flow:</strong> Combines <code>flex-direction</code> and <code>flex-wrap</code>
+      <pre><code>flex-flow: row wrap;</code></pre>
+    </li>
+    <li><strong>Z.9 – grid-area:</strong> Combines <code>grid-row-start</code>, <code>grid-column-start</code>, etc.
+      <pre><code>grid-area: 1 / 2 / 3 / 4;</code></pre>
+    </li>
+    <li><strong>Z.10 – list-style:</strong>
+      <pre><code>list-style: square inside;</code></pre>
+    </li>
+    <li><strong>Z.11 – border-radius:</strong> Can be written for 1–4 corners.
+      <pre><code>border-radius: 8px 12px 4px 0;</code></pre>
+    </li>
+    <li><strong>Z.12 – columns:</strong> Combines <code>column-width</code> and <code>column-count</code>
+      <pre><code>columns: 2 200px;</code></pre>
+    </li>
+    <li><strong>Z.13 – overflow:</strong>
+      <pre><code>overflow: hidden auto; /* x y */</code></pre>
+    </li>
+    <li><strong>Z.14 – inset:</strong> Combines <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code>
+      <pre><code>inset: 10px 15px 5px 0;</code></pre>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AA: Best Practices -->
+  <!-- Summarizes professional habits, conventions, and patterns for writing scalable, clean, and maintainable CSS. -->
+  <h2>Section AA – Best Practices</h2>
+  <p><em>Note: These are established techniques for writing clean, robust, and forward-compatible CSS in production environments.</em></p>
+  <ul>
+    <li><strong>AA.1 – Use semantic HTML + class-based styling:</strong> Keep HTML meaning intact and style via classes instead of tag selectors where possible.</li>
+    <li><strong>AA.2 – Organize styles logically:</strong> Group rules by component or layout section (e.g., header, nav, footer).</li>
+    <li><strong>AA.3 – Use a naming convention:</strong> Adopt BEM, SMACSS, or custom pattern to avoid conflicts and improve readability.</li>
+    <li><strong>AA.4 – Prefer utility classes for spacing/layout:</strong> Abstract repetitive spacing with atomic utility classes (e.g., <code>.mt-4</code>).</li>
+    <li><strong>AA.5 – Avoid !important (except for overrides):</strong> Use specificity and structure to resolve conflicts without needing <code>!important</code>.</li>
+    <li><strong>AA.6 – Use custom properties (variables):</strong> Define and reuse colors, spacing, font sizes consistently across the stylesheet.</li>
+    <li><strong>AA.7 – Set a CSS reset or normalize baseline:</strong> Start with a consistent cross-browser style baseline (e.g., Normalize.css or a reset block).</li>
+    <li><strong>AA.8 – Use relative units (em/rem/%):</strong> Make text and layouts scalable and accessible across devices and screen sizes.</li>
+    <li><strong>AA.9 – Limit nesting:</strong> Deep nesting increases specificity and reduces readability. Keep selectors shallow when possible.</li>
+    <li><strong>AA.10 – Minimize overrides:</strong> Architect CSS to avoid needing to undo or overwrite styles later.</li>
+    <li><strong>AA.11 – Comment critical sections:</strong> Explain decisions, caveats, or hacks to help others (or your future self).</li>
+    <li><strong>AA.12 – Test across browsers and devices:</strong> Validate CSS works consistently using tools like BrowserStack or real devices.</li>
+    <li><strong>AA.13 – Use dev tools for inspection:</strong> Use browser developer tools to debug layout, styles, stacking, and state changes.</li>
+    <li><strong>AA.14 – Keep CSS modular:</strong> Use external stylesheets per component or page section in large projects.</li>
+    <li><strong>AA.15 – Automate formatting:</strong> Use Prettier or Stylelint to enforce consistent code formatting and avoid errors.</li>
+  </ul>
+</section>
+
+
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+
+
+
+
 
     
   </main>
