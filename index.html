@@ -1139,7 +1139,57 @@ color: var(--text-color, black);</code></pre>
   </ul>
 </section>
 
+<!-- Link to internal stylesheet or embed directly -->
+<link rel="stylesheet" href="styles.css">
 
+ <section class="section">
+  <!-- SECTION AG: Container Queries -->
+  <!-- Enables styling elements based on the dimensions of their parent container, not the viewport. -->
+  <h2>Section AG – Container Queries</h2>
+  <p><em>Note: Container Queries allow elements to style themselves based on the width, height, or inline size of their parent. Useful for responsive components and layout blocks.</em></p>
+  <ul>
+    <li><strong>AG.1 – Enable a container context:</strong> Apply <code>container-type</code> to the container element.
+      <pre><code>.card {
+  container-type: inline-size;
+  container-name: card;
+}</code></pre>
+    </li>
+
+    <li><strong>AG.2 – Write a container query:</strong>
+      <pre><code>@container (min-width: 400px) {
+  .card h2 {
+    font-size: 1.5rem;
+  }
+}</code></pre>
+      <p>This only applies when the container is at least 400px wide, regardless of the viewport.</p>
+    </li>
+
+    <li><strong>AG.3 – Naming containers (optional):</strong> Assign container names with <code>container-name</code> and target specific ones.
+      <pre><code>@container card (min-width: 500px) {
+  .card-content {
+    padding: 2rem;
+  }
+}</code></pre>
+    </li>
+
+    <li><strong>AG.4 – Types of container types:</strong>
+      <ul>
+        <li><code>size</code> – Queries both inline-size and block-size (rarely supported)</li>
+        <li><code>inline-size</code> – Queries horizontal size (most common)</li>
+        <li><code>normal</code> – Allows containment only of style/layout</li>
+      </ul>
+    </li>
+
+    <li><strong>AG.5 – Nesting behavior:</strong> Container queries apply only to direct or nested elements inside the container — not globally like media queries.</li>
+
+    <li><strong>AG.6 – When to use:</strong> Use container queries inside reusable components (cards, widgets, blocks) where layout or font scaling needs to adapt **per section**, not per screen.</li>
+
+    <li><strong>AG.7 – Fallback strategy:</strong> Use default styles outside queries for basic support, then layer enhancements in <code>@container</code> blocks.</li>
+  </ul>
+</section>
+
+
+    \
 
     
     
