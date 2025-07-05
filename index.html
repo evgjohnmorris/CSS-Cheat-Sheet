@@ -1189,7 +1189,175 @@ color: var(--text-color, black);</code></pre>
 </section>
 
 
-    \
+    <section class="section">
+  <!-- SECTION AH: Environment Variables -->
+  <!-- Enables use of device/system-level context variables for layout and safety padding. -->
+  <h2>Section AH – Environment Variables</h2>
+  <p><em>Note: Environment variables are accessed using the <code>env()</code> function. They adjust layout based on device conditions like notches, navigation bars, and system UI constraints.</em></p>
+  <ul>
+    <li><strong>AH.1 – Safe area insets (common on mobile):</strong>
+      <pre><code>padding: env(safe-area-inset-top)
+         env(safe-area-inset-right)
+         env(safe-area-inset-bottom)
+         env(safe-area-inset-left);</code></pre>
+      <p>Ensures content does not overlap notches or system bars on iOS/Android.</p>
+    </li>
+
+    <li><strong>AH.2 – Example with fallback:</strong>
+      <pre><code>padding-left: env(safe-area-inset-left, 1rem);</code></pre>
+      <p>If the environment variable is unsupported, fallback to 1rem.</p>
+    </li>
+
+    <li><strong>AH.3 – List of common env() variables:</strong>
+      <ul>
+        <li><code>safe-area-inset-top</code></li>
+        <li><code>safe-area-inset-bottom</code></li>
+        <li><code>safe-area-inset-left</code></li>
+        <li><code>safe-area-inset-right</code></li>
+      </ul>
+    </li>
+
+    <li><strong>AH.4 – Use in fixed headers/footers:</strong>
+      <pre><code>.header {
+  padding-top: env(safe-area-inset-top);
+}</code></pre>
+    </li>
+
+    <li><strong>AH.5 – Combined with media queries:</strong>
+      <pre><code>@media (orientation: landscape) {
+  .container {
+    padding-left: env(safe-area-inset-left);
+  }
+}</code></pre>
+    </li>
+
+    <li><strong>AH.6 – Platform use cases:</strong> Especially useful in:
+      <ul>
+        <li>iPhones with notches (X and newer)</li>
+        <li>Android immersive mode apps</li>
+        <li>Progressive Web Apps (PWAs)</li>
+        <li>Edge-to-edge layouts</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION AI: Logical Properties -->
+  <!-- Enables writing-direction-aware layout using logical instead of physical property names. -->
+  <h2>Section AI – Logical Properties</h2>
+  <p><em>Note: Logical properties automatically adapt styles based on writing direction (like Arabic or vertical Japanese) and support internationalization better than physical properties like <code>left</code> or <code>top</code>.</em></p>
+  <ul>
+    <li><strong>AI.1 – Logical vs Physical Comparison:</strong>
+      <table>
+        <thead><tr><th>Physical</th><th>Logical</th></tr></thead>
+        <tbody>
+          <tr><td><code>margin-left</code></td><td><code>margin-inline-start</code></td></tr>
+          <tr><td><code>margin-right</code></td><td><code>margin-inline-end</code></td></tr>
+          <tr><td><code>padding-top</code></td><td><code>padding-block-start</code></td></tr>
+          <tr><td><code>width</code></td><td><code>inline-size</code></td></tr>
+          <tr><td><code>height</code></td><td><code>block-size</code></td></tr>
+        </tbody>
+      </table>
+    </li>
+
+    <li><strong>AI.2 – Common Logical Properties:</strong>
+      <ul>
+        <li><code>margin-inline</code>, <code>margin-block</code></li>
+        <li><code>padding-inline</code>, <code>padding-block</code></li>
+        <li><code>inset-inline</code>, <code>inset-block</code></li>
+        <li><code>border-inline</code>, <code>border-block</code></li>
+      </ul>
+    </li>
+
+    <li><strong>AI.3 – Practical Example:</strong>
+      <pre><code>.box {
+  padding-inline: 1rem;
+  padding-block: 0.5rem;
+  border-inline-start: 2px solid red;
+}</code></pre>
+      <p>This works correctly whether text is left-to-right or right-to-left.</p>
+    </li>
+
+    <li><strong>AI.4 – Sizing with logical dimensions:</strong>
+      <pre><code>.card {
+  inline-size: 100%;
+  block-size: auto;
+}</code></pre>
+    </li>
+
+    <li><strong>AI.5 – Writing-mode-aware layout:</strong>
+      <pre><code>html {
+  writing-mode: vertical-rl;
+}</code></pre>
+      <p>Combine with logical properties for robust vertical writing support.</p>
+    </li>
+
+    <li><strong>AI.6 – When to use:</strong> Always prefer logical properties in:
+      <ul>
+        <li>Multilingual websites</li>
+        <li>Right-to-left support (Arabic, Hebrew)</li>
+        <li>Vertical writing (Japanese, Chinese)</li>
+        <li>Reusable layout components</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AJ: Cascade Layers (@layer) -->
+  <!-- Defines named CSS layers to manage cascade order across multiple origin stylesheets or style scopes. -->
+  <h2>Section AJ – Cascade Layers (<code>@layer</code>)</h2>
+  <p><em>Note: <code>@layer</code> introduces a new way to control the cascade — before specificity and order — allowing cleaner overrides between resets, base styles, utilities, and component-specific rules.</em></p>
+  <ul>
+    <li><strong>AJ.1 – Declaring layers:</strong>
+      <pre><code>@layer reset, base, components, overrides;</code></pre>
+      <p>This sets the cascade order of named layers (first wins, last overrides).</p>
+    </li>
+
+    <li><strong>AJ.2 – Defining styles in a layer:</strong>
+      <pre><code>@layer base {
+  h1, h2, h3 {
+    font-family: system-ui;
+  }
+}</code></pre>
+    </li>
+
+    <li><strong>AJ.3 – Nesting layers inside imports:</strong>
+      <pre><code>@import url('reset.css') layer(reset);
+@import url('base.css') layer(base);</code></pre>
+      <p>Useful when layering external stylesheets like resets and frameworks.</p>
+    </li>
+
+    <li><strong>AJ.4 – Overriding in upper layers:</strong>
+      <pre><code>@layer overrides {
+  button {
+    background-color: red;
+  }
+}</code></pre>
+      <p>This overrides the same selector defined in earlier layers.</p>
+    </li>
+
+    <li><strong>AJ.5 – Why use @layer:</strong>
+      <ul>
+        <li>Cleanly separates concern domains (reset/base/utilities/components)</li>
+        <li>Reduces need for <code>!important</code> or specificity battles</li>
+        <li>Improves readability of CSS override intent</li>
+      </ul>
+    </li>
+
+    <li><strong>AJ.6 – How it fits into the cascade:</strong>
+      <p><code>@layer</code> sits above selector specificity but below inline styles and <code>!important</code>.</p>
+    </li>
+
+    <li><strong>AJ.7 – Fallback strategy:</strong> Layers are ignored in browsers that don’t support them. Use base styles unlayered in fallback sheets if needed.</li>
+  </ul>
+</section>
+
+
+    
+    
 
     
     
