@@ -1849,8 +1849,1784 @@ input:checked + label + .accordion-content {
 </section>
 
     
+    <section class="section">
+  <!-- SECTION AR: Filter Effects -->
+  <!-- Applies visual processing like blur, brightness, grayscale, and shadow effects directly to elements or images. -->
+  <h2>Section AR – Filter Effects</h2>
+  <p><em>Note: CSS filters modify the appearance of content without changing layout. They are ideal for hover effects, modal backdrops, or stylized visuals in UI/UX.</em></p>
+
+  <ul>
+    <li><strong>AR.1 – Applying basic filters:</strong>
+      <pre><code>.filtered {
+  filter: blur(4px) brightness(0.8);
+}</code></pre>
+      <p>Applies multiple filters simultaneously.</p>
+    </li>
+
+    <li><strong>AR.2 – Common filter functions:</strong>
+      <ul>
+        <li><code>blur(px)</code> – Softens the image</li>
+        <li><code>brightness(%)</code> – Lightens/darkens</li>
+        <li><code>contrast(%)</code> – Increases sharpness</li>
+        <li><code>grayscale(%)</code> – Converts to monochrome</li>
+        <li><code>sepia(%)</code> – Adds warm tone filter</li>
+        <li><code>saturate(%)</code> – Boosts color intensity</li>
+        <li><code>hue-rotate(deg)</code> – Shifts color wheel</li>
+        <li><code>invert(%)</code> – Inverts colors</li>
+        <li><code>opacity(%)</code> – Controls transparency</li>
+        <li><code>drop-shadow()</code> – Adds shadow that follows shape</li>
+      </ul>
+    </li>
+
+    <li><strong>AR.3 – Filter on hover:</strong>
+      <pre><code>.card:hover {
+  filter: brightness(1.2) saturate(1.3);
+}</code></pre>
+      <p>Enhances visual engagement on interaction.</p>
+    </li>
+
+    <li><strong>AR.4 – Using <code>backdrop-filter</code>:</strong>
+      <pre><code>.glass {
+  backdrop-filter: blur(10px) brightness(0.9);
+  background-color: rgba(255, 255, 255, 0.2);
+}</code></pre>
+      <p>Applies filter effects to content behind an element. Combine with transparency.</p>
+    </li>
+
+    <li><strong>AR.5 – Performance tip:</strong>
+      <ul>
+        <li>Use sparingly on large or dynamic containers</li>
+        <li>GPU-accelerated but can trigger repaints on updates</li>
+        <li><code>will-change: filter;</code> helps performance</li>
+      </ul>
+    </li>
+
+    <li><strong>AR.6 – When to use:</strong>
+      <ul>
+        <li>Image previews and thumbnails</li>
+        <li>UI state feedback and hover effects</li>
+        <li>Glassmorphism and modals</li>
+        <li>Artistic adjustments without altering source media</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+    
+   <section class="section">
+  <!-- SECTION AS: Blend Modes & Isolation -->
+  <!-- Allows CSS elements to blend visually using compositing rules, and isolate blending effects from unrelated siblings. -->
+  <h2>Section AS – Blend Modes & Isolation</h2>
+  <p><em>Note: <code>mix-blend-mode</code> and <code>background-blend-mode</code> define how an element or its background interacts with what's underneath. <code>isolation</code> lets you prevent blending with unrelated layers.</em></p>
+
+  <ul>
+    <li><strong>AS.1 – mix-blend-mode (element-to-element):</strong>
+      <pre><code>.text {
+  mix-blend-mode: difference;
+}</code></pre>
+      <p>Makes text invert colors based on what's beneath it.</p>
+    </li>
+
+    <li><strong>AS.2 – background-blend-mode (background layers):</strong>
+      <pre><code>.hero {
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                    url('image.jpg');
+  background-blend-mode: multiply;
+}</code></pre>
+      <p>Blends a background image with an overlay color/gradient.</p>
+    </li>
+
+    <li><strong>AS.3 – Common blend mode values:</strong>
+      <ul>
+        <li><code>normal</code> – Default, no blending</li>
+        <li><code>multiply</code> – Darkens underlying layers</li>
+        <li><code>screen</code> – Lightens overall result</li>
+        <li><code>overlay</code> – Combines multiply + screen</li>
+        <li><code>darken / lighten</code> – Chooses darker/lighter pixels</li>
+        <li><code>difference / exclusion</code> – Inverts based on contrast</li>
+      </ul>
+    </li>
+
+    <li><strong>AS.4 – Using isolation:</strong>
+      <pre><code>.container {
+  isolation: isolate;
+}</code></pre>
+      <p>Prevents child blend modes from affecting outside elements.</p>
+    </li>
+
+    <li><strong>AS.5 – Practical use cases:</strong>
+      <ul>
+        <li>Text overlays with invert or multiply</li>
+        <li>Hero banners with layered backgrounds</li>
+        <li>Hover effects with blending on images</li>
+        <li>Preventing unintended global blend effect leaks</li>
+      </ul>
+    </li>
+
+    <li><strong>AS.6 – Accessibility tips:</strong>
+      <ul>
+        <li>Ensure blended text remains readable</li>
+        <li>Avoid important contrast-dependent info inside blend layers</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AT: Backdrop & Glassmorphism -->
+  <!-- Uses backdrop-filter and transparency to simulate glass-like or frosted UI effects. -->
+  <h2>Section AT – Backdrop & Glassmorphism</h2>
+  <p><em>Note: <code>backdrop-filter</code> applies effects to the background behind an element. Glassmorphism combines this with transparency and subtle borders for a frosted-glass look.</em></p>
+
+  <ul>
+    <li><strong>AT.1 – Basic backdrop blur:</strong>
+      <pre><code>.frosted {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.15);
+}</code></pre>
+      <p>Creates a translucent panel that blurs background content.</p>
+    </li>
+
+    <li><strong>AT.2 – Full glassmorphism panel:</strong>
+      <pre><code>.glass {
+  backdrop-filter: blur(16px) brightness(0.9);
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+}</code></pre>
+      <p>Ideal for modals, cards, and overlay containers.</p>
+    </li>
+
+    <li><strong>AT.3 – Requirements for effect:</strong>
+      <ul>
+        <li>Element must have a transparent background</li>
+        <li>Parent/container must have content behind it</li>
+        <li>Use <code>position</code> and <code>z-index</code> to stack properly</li>
+      </ul>
+    </li>
+
+    <li><strong>AT.4 – Cross-browser support:</strong>
+      <ul>
+        <li>Use <code>-webkit-backdrop-filter</code> for Safari</li>
+        <li>Ensure fallback styling (e.g. semi-transparent background) for unsupported browsers</li>
+      </ul>
+      <pre><code>.glass {
+  -webkit-backdrop-filter: blur(16px);
+}</code></pre>
+    </li>
+
+    <li><strong>AT.5 – Accessibility considerations:</strong>
+      <ul>
+        <li>Ensure sufficient contrast against blurred backgrounds</li>
+        <li>Consider disabling for users who prefer reduced transparency</li>
+      </ul>
+    </li>
+
+    <li><strong>AT.6 – Glass effect on interactive UIs:</strong>
+      <ul>
+        <li>Use for nav bars, cards, overlays, modals, dialog boxes</li>
+        <li>Combine with <code>hover</code>, <code>focus-within</code>, and transitions for polished interactivity</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AU: Advanced Compositing -->
+  <!-- Offers control over render layers, blend context, and nested effect handling for complex visuals. -->
+  <h2>Section AU – Advanced Compositing</h2>
+  <p><em>Note: Compositing governs how layered elements mix visually. Mastering isolation, filters, masks, and stacking order enables clean, predictable, high-performance visuals.</em></p>
+
+  <ul>
+    <li><strong>AU.1 – Compositing context with <code>isolation</code>:</strong>
+      <pre><code>.group {
+  isolation: isolate;
+}</code></pre>
+      <p>Prevents blend modes or filters from leaking to sibling or parent elements.</p>
+    </li>
+
+    <li><strong>AU.2 – Controlling paint order with <code>z-index</code>:</strong>
+      <pre><code>.layer {
+  position: relative;
+  z-index: 10;
+}</code></pre>
+      <p>Ensures consistent layer stacking and depth control.</p>
+    </li>
+
+    <li><strong>AU.3 – Composite + blend interaction:</strong>
+      <pre><code>.blend-layer {
+  mix-blend-mode: overlay;
+  z-index: 2;
+  isolation: isolate;
+}</code></pre>
+      <p>Combine stacking and blending without interference.</p>
+    </li>
+
+    <li><strong>AU.4 – Using <code>contain</code> for performance:</strong>
+      <pre><code>.widget {
+  contain: layout paint style;
+}</code></pre>
+      <p>Limits scope of rendering and improves performance by containing paint and layout.</p>
+    </li>
+
+    <li><strong>AU.5 – Layered animation with isolation:</strong>
+      <pre><code>.anim-group {
+  isolation: isolate;
+  will-change: transform, opacity;
+}</code></pre>
+      <p>Prevents GPU animations from triggering full re-renders of unrelated content.</p>
+    </li>
+
+    <li><strong>AU.6 – GPU-friendly stacking:</strong>
+      <ul>
+        <li>Use <code>transform: translateZ(0)</code> to promote element to GPU layer</li>
+        <li>Use <code>will-change</code> to pre-optimize rendering</li>
+      </ul>
+      <pre><code>.gpu-layer {
+  transform: translateZ(0);
+  will-change: opacity;
+}</code></pre>
+    </li>
+
+    <li><strong>AU.7 – Compositing use cases:</strong>
+      <ul>
+        <li>UI cards with hover blur or brightness</li>
+        <li>Dashboard widgets with filters and depth</li>
+        <li>Nested blend containers in charts/infographics</li>
+        <li>Glassmorphism + layered background effects</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AV: Writing Robust Utility Classes -->
+  <!-- Utility classes apply single, reusable rules — ideal for scalable styling with minimal bloat. -->
+  <h2>Section AV – Writing Robust Utility Classes</h2>
+  <p><em>Note: Utility-first CSS emphasizes composability, where small, atomic classes apply specific rules (e.g. <code>.text-center</code>, <code>.mt-4</code>, <code>.bg-blue</code>). This reduces the need for verbose selectors and improves consistency.</em></p>
+
+  <ul>
+    <li><strong>AV.1 – Structure of utility classes:</strong>
+      <pre><code>.text-center  { text-align: center; }
+.mt-4        { margin-top: 1rem; }
+.bg-blue     { background-color: #007BFF; }
+.rounded     { border-radius: 0.5rem; }</code></pre>
+      <p>Each class is responsible for one rule only.</p>
+    </li>
+
+    <li><strong>AV.2 – Utility naming conventions:</strong>
+      <ul>
+        <li><code>p-[side]-[amount]</code> – Padding</li>
+        <li><code>m-[side]-[amount]</code> – Margin</li>
+        <li><code>text-[align/size/color]</code> – Typography</li>
+        <li><code>bg-[color]</code> – Background color</li>
+        <li><code>flex / grid / block</code> – Display utilities</li>
+      </ul>
+    </li>
+
+    <li><strong>AV.3 – Creating spacing scales:</strong>
+      <pre><code>.m-0  { margin: 0; }
+.m-1  { margin: 0.25rem; }
+.m-2  { margin: 0.5rem; }
+.m-4  { margin: 1rem; }</code></pre>
+      <p>Define consistent spacing increments for layout control.</p>
+    </li>
+
+    <li><strong>AV.4 – Responsive utility variants:</strong>
+      <pre><code>@media (min-width: 768px) {
+  .md\\:text-left { text-align: left; }
+}</code></pre>
+      <p>Use breakpoint prefixes for responsive styling.</p>
+    </li>
+
+    <li><strong>AV.5 – Benefits of utility-first architecture:</strong>
+      <ul>
+        <li>Minimal custom selectors = cleaner codebase</li>
+        <li>Highly reusable — no style duplication</li>
+        <li>Faster development with predictable naming</li>
+        <li>Easier debugging (styles are in class names)</li>
+      </ul>
+    </li>
+
+    <li><strong>AV.6 – Utility class best practices:</strong>
+      <ul>
+        <li>Follow a consistent naming system</li>
+        <li>Use BEM or token-style conventions if needed</li>
+        <li>Group utilities in layered sections (layout, text, color, spacing, etc.)</li>
+        <li>Document your scale system clearly</li>
+      </ul>
+    </li>
+
+    <li><strong>AV.7 – Limitations:</strong>
+      <ul>
+        <li>Long class attributes on elements</li>
+        <li>Harder to override in deep component trees</li>
+        <li>May conflict with design systems using semantic classes</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AW: CSS-Only Interactivity -->
+  <!-- Enables interactive components using pseudo-classes and form inputs — no JavaScript required. -->
+  <h2>Section AW – CSS-Only Interactivity</h2>
+  <p><em>Note: You can build toggles, dropdowns, accordions, tabs, and lightboxes using only CSS selectors and states. No JavaScript needed when behavior relies on checkboxes, radio buttons, and URL targets.</em></p>
+
+  <ul>
+    <li><strong>AW.1 – Toggle using checkbox:</strong>
+      <pre><code>&lt;input type="checkbox" id="toggle"&gt;
+&lt;label for="toggle"&gt;Show Details&lt;/label&gt;
+&lt;div class="content"&gt;Hidden content&lt;/div&gt;
+
+input:checked + label + .content {
+  display: block;
+}</code></pre>
+    </li>
+
+    <li><strong>AW.2 – Tabs using radio buttons:</strong>
+      <pre><code>&lt;input type="radio" name="tabs" id="tab1" checked&gt;
+&lt;input type="radio" name="tabs" id="tab2"&gt;
+
+&lt;div class="tab" id="content1"&gt;Tab 1&lt;/div&gt;
+&lt;div class="tab" id="content2"&gt;Tab 2&lt;/div&gt;
+
+#tab1:checked ~ #content1 { display: block; }
+#tab2:checked ~ #content2 { display: block; }</code></pre>
+    </li>
+
+    <li><strong>AW.3 – Modal using <code>:target</code>:</strong>
+      <pre><code>&lt;a href="#popup"&gt;Open Modal&lt;/a&gt;
+&lt;div id="popup"&gt;
+  &lt;a href="#"&gt;Close&lt;/a&gt;
+  &lt;p&gt;Modal content&lt;/p&gt;
+&lt;/div&gt;
+
+#popup:target {
+  display: block;
+}</code></pre>
+    </li>
+
+    <li><strong>AW.4 – Accordion with checkbox and transitions:</strong>
+      <pre><code>.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+input:checked + label + .accordion-content {
+  max-height: 100px;
+}</code></pre>
+    </li>
+
+    <li><strong>AW.5 – Interactive button using <code>:hover</code> and <code>:focus</code>:</strong>
+      <pre><code>button:hover,
+button:focus {
+  background-color: var(--primary);
+  transform: scale(1.05);
+}</code></pre>
+    </li>
+
+    <li><strong>AW.6 – State selectors to know:</strong>
+      <ul>
+        <li><code>:hover</code> – Mouse-over</li>
+        <li><code>:focus</code> – Keyboard or mouse focus</li>
+        <li><code>:checked</code> – Input checkbox/radio selected</li>
+        <li><code>:target</code> – Element targeted in URL</li>
+        <li><code>:focus-within</code> – Any child element has focus</li>
+      </ul>
+    </li>
+
+    <li><strong>AW.7 – Limitations:</strong>
+      <ul>
+        <li>No persistent state beyond page interaction</li>
+        <li>Not ideal for data-driven or async content</li>
+        <li>Best suited for static or progressively-enhanced interfaces</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AX: Custom Scrollbars -->
+  <!-- Styles browser scrollbars for consistent theming and UI branding across scrollable elements. -->
+  <h2>Section AX – Custom Scrollbars</h2>
+  <p><em>Note: CSS allows you to override the native scrollbar appearance in WebKit-based browsers and partially in Firefox. These are often used for dark mode support or UI branding. Use sparingly and test thoroughly.</em></p>
+
+  <ul>
+    <li><strong>AX.1 – WebKit scrollbar styling:</strong>
+      <pre><code>/* Scrollbar track */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+/* Scrollbar track background */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}</code></pre>
+      <p>These selectors work in Chrome, Safari, and Edge (WebKit-based engines).</p>
+    </li>
+
+    <li><strong>AX.2 – Hover & active states:</strong>
+      <pre><code>::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}</code></pre>
+    </li>
+
+    <li><strong>AX.3 – Firefox scrollbar styling (limited):</strong>
+      <pre><code>scrollbar-color: #888 #f1f1f1;
+scrollbar-width: thin;</code></pre>
+      <p>Only affects color and width — no full theming.</p>
+    </li>
+
+    <li><strong>AX.4 – Scoped scrollable element:</strong>
+      <pre><code>.scroll-area {
+  overflow-y: scroll;
+  max-height: 300px;
+}</code></pre>
+      <p>Apply custom scroll styles to a specific container only.</p>
+    </li>
+
+    <li><strong>AX.5 – Accessibility best practices:</strong>
+      <ul>
+        <li>Ensure thumb contrast meets WCAG standards</li>
+        <li>Don’t hide scrollbars completely — breaks usability</li>
+        <li>Use <code>auto</code> or <code>overlay</code> scrollbars on touch devices cautiously</li>
+      </ul>
+    </li>
+
+    <li><strong>AX.6 – Use cases:</strong>
+      <ul>
+        <li>Admin panels, chat windows, code blocks</li>
+        <li>Dark themes needing neutral scroll visuals</li>
+        <li>UI components that scroll (tables, modals, dropdowns)</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+  <section class="section">
+  <!-- SECTION AY: Forced Colors & Media Features -->
+  <!-- Uses media queries and user environment flags to respect accessibility and device settings. -->
+  <h2>Section AY – Forced Colors & Media Features</h2>
+  <p><em>Note: Use media queries like <code>forced-colors</code>, <code>prefers-color-scheme</code>, and <code>prefers-reduced-motion</code> to respond to the user's system or browser settings. These improve usability, accessibility, and compliance.</em></p>
+
+  <ul>
+    <li><strong>AY.1 – Detecting forced colors mode (Windows High Contrast):</strong>
+      <pre><code>@media (forced-colors: active) {
+  * {
+    background-color: Canvas;
+    color: CanvasText;
+  }
+}</code></pre>
+      <p>Overrides your UI to work with high-contrast environments.</p>
+    </li>
+
+    <li><strong>AY.2 – Detecting dark/light color scheme:</strong>
+      <pre><code>@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}</code></pre>
+      <p>Allows your site to auto-adjust to OS theme.</p>
+    </li>
+
+    <li><strong>AY.3 – Detecting reduced motion preference:</strong>
+      <pre><code>@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}</code></pre>
+      <p>Respects users who prefer minimal motion for accessibility reasons.</p>
+    </li>
+
+    <li><strong>AY.4 – Other useful media features:</strong>
+      <ul>
+        <li><code>prefers-contrast</code> – Detect high or low contrast preference</li>
+        <li><code>prefers-reduced-transparency</code> – Detect transparency sensitivity</li>
+        <li><code>inverted-colors</code> – Detect color inversion (deprecated)</li>
+        <li><code>hover</code> – Detects if a hover-capable pointer is available</li>
+        <li><code>pointer</code> – Detects the accuracy of input device (fine/coarse/none)</li>
+      </ul>
+    </li>
+
+    <li><strong>AY.5 – Best practices:</strong>
+      <ul>
+        <li>Always test in system-level high contrast or dark/light themes</li>
+        <li>Use CSS variables to adapt dynamically</li>
+        <li>Don’t disable system behavior — work with it</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+  
     
     
+    <section class="section">
+  <!-- SECTION AZ: Feature Queries (@supports) -->
+  <!-- Conditionally apply styles depending on CSS support. Enables safe progressive enhancement. -->
+  <h2>Section AZ – Feature Queries (<code>@supports</code>)</h2>
+  <p><em>Note: <code>@supports</code> lets you apply styles only if the browser supports a given property-value pair. This is essential for fallbacks and modern enhancements (e.g. grid, gap, container queries).</em></p>
+
+  <ul>
+    <li><strong>AZ.1 – Basic usage:</strong>
+      <pre><code>@supports (display: grid) {
+  .layout {
+    display: grid;
+    gap: 1rem;
+  }
+}</code></pre>
+      <p>This ensures grid layout is only applied if supported.</p>
+    </li>
+
+    <li><strong>AZ.2 – Fallback technique:</strong>
+      <pre><code>.layout {
+  display: flex;
+}
+
+@supports (display: grid) {
+  .layout {
+    display: grid;
+  }
+}</code></pre>
+      <p>Applies flex by default, grid only when available.</p>
+    </li>
+
+    <li><strong>AZ.3 – Combining multiple conditions:</strong>
+      <pre><code>@supports (display: grid) and (gap: 1rem) {
+  .grid {
+    display: grid;
+    gap: 1rem;
+  }
+}</code></pre>
+      <p>You can chain with <code>and</code>, <code>or</code>, and <code>not</code>.</p>
+    </li>
+
+    <li><strong>AZ.4 – Negation logic:</strong>
+      <pre><code>@supports not (backdrop-filter: blur(10px)) {
+  .glass {
+    background-color: rgba(255,255,255,0.85);
+  }
+}</code></pre>
+      <p>Fallback for browsers that don't support <code>backdrop-filter</code>.</p>
+    </li>
+
+    <li><strong>AZ.5 – Use cases:</strong>
+      <ul>
+        <li>Safely use CSS Grid, clamp(), container queries, etc.</li>
+        <li>Enhance modern browser experience without breaking legacy</li>
+        <li>Control compatibility boundaries for critical UI</li>
+      </ul>
+    </li>
+
+    <li><strong>AZ.6 – Feature query tips:</strong>
+      <ul>
+        <li>Always test in fallback and modern browsers</li>
+        <li>Avoid using <code>@supports</code> as a replacement for feature detection JS</li>
+        <li>Use with variables, layout systems, or UI enhancements</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BA: Interactivity Without JS -->
+  <!-- Simulates interactivity like toggles, tabs, and modals using HTML + CSS only. -->
+  <h2>Section BA – Interactivity Without JavaScript</h2>
+  <p><em>Note: CSS-only interaction patterns can replicate many common UI behaviors. Combine form elements, selectors, and pseudo-classes like <code>:checked</code> and <code>:target</code> to manage UI state without scripts.</em></p>
+
+  <ul>
+    <li><strong>BA.1 – Checkbox toggle pattern:</strong>
+      <pre><code>&lt;input type="checkbox" id="menu-toggle"&gt;
+&lt;label for="menu-toggle"&gt;Toggle Menu&lt;/label&gt;
+&lt;nav class="menu"&gt;Navigation Links&lt;/nav&gt;
+
+#menu-toggle:checked ~ .menu {
+  display: block;
+}</code></pre>
+      <p>Used to create show/hide menus, sidebars, etc.</p>
+    </li>
+
+    <li><strong>BA.2 – Tabs with radio buttons:</strong>
+      <pre><code>&lt;input type="radio" name="tabs" id="tab1" checked&gt;
+&lt;label for="tab1"&gt;Tab 1&lt;/label&gt;
+&lt;div class="tab-content"&gt;Tab 1 content&lt;/div&gt;
+
+#tab1:checked ~ .tab-content {
+  display: block;
+}</code></pre>
+      <p>Each tab is tied to a radio button state.</p>
+    </li>
+
+    <li><strong>BA.3 – Modal using <code>:target</code>:</strong>
+      <pre><code>&lt;a href="#popup"&gt;Open Modal&lt;/a&gt;
+&lt;div id="popup"&gt;
+  &lt;a href="#"&gt;Close&lt;/a&gt;
+  &lt;p&gt;Modal content&lt;/p&gt;
+&lt;/div&gt;
+
+#popup:target {
+  display: block;
+}</code></pre>
+      <p>Opening modals via anchor targeting and CSS visibility.</p>
+    </li>
+
+    <li><strong>BA.4 – Accordion via max-height transitions:</strong>
+      <pre><code>.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+input:checked + .accordion-content {
+  max-height: 200px;
+}</code></pre>
+      <p>Use this for FAQ lists and collapsible sections.</p>
+    </li>
+
+    <li><strong>BA.5 – Hover/focus-based reveal:</strong>
+      <pre><code>.reveal:hover .tooltip,
+.reveal:focus-within .tooltip {
+  opacity: 1;
+  visibility: visible;
+}</code></pre>
+      <p>For tooltips and contextual info popups.</p>
+    </li>
+
+    <li><strong>BA.6 – Interactive features possible with CSS only:</strong>
+      <ul>
+        <li>Dropdowns</li>
+        <li>Sidebars and modals</li>
+        <li>Tabbed interfaces</li>
+        <li>Hover cards and menus</li>
+        <li>Accordion components</li>
+        <li>Off-canvas navigation</li>
+      </ul>
+    </li>
+
+    <li><strong>BA.7 – Best practices:</strong>
+      <ul>
+        <li>Ensure focusability for accessibility (e.g. use labels, buttons)</li>
+        <li>Use semantic HTML structures</li>
+        <li>Test mobile and screen reader behavior carefully</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BB: CSS Naming Conventions -->
+  <!-- Establishes structure, clarity, and scalability in naming CSS selectors and classes. -->
+  <h2>Section BB – CSS Naming Conventions</h2>
+  <p><em>Note: Following clear and systematic naming conventions improves maintainability, especially in large or team-based CSS projects. Common strategies include BEM, OOCSS, SMACSS, and utility-based systems.</em></p>
+
+  <ul>
+    <li><strong>BB.1 – BEM (Block–Element–Modifier):</strong>
+      <pre><code>.button { }
+.button__icon { }
+.button--primary { }</code></pre>
+      <p>
+        <strong>Block:</strong> standalone component (e.g. <code>button</code>)<br>
+        <strong>Element:</strong> a child part of the block (e.g. <code>button__icon</code>)<br>
+        <strong>Modifier:</strong> a variation of the block (e.g. <code>button--primary</code>)
+      </p>
+    </li>
+
+    <li><strong>BB.2 – OOCSS (Object-Oriented CSS):</strong>
+      <p>Separate structure (layout) from skin (style):</p>
+      <pre><code>.media { display: flex; }
+.media-img { margin-right: 1rem; }
+.media-body { flex: 1; }</code></pre>
+    </li>
+
+    <li><strong>BB.3 – SMACSS (Scalable and Modular Architecture):</strong>
+      <ul>
+        <li><code>.layout-header</code>, <code>.module-button</code>, <code>.state-hidden</code></li>
+        <li>Classifies rules by role: base, layout, module, state, theme</li>
+      </ul>
+    </li>
+
+    <li><strong>BB.4 – Utility-first naming:</strong>
+      <pre><code>.text-center
+.m-2
+.px-4
+.bg-gray</code></pre>
+      <p>Functional naming that describes exact effect (used in Tailwind CSS).</p>
+    </li>
+
+    <li><strong>BB.5 – Naming best practices:</strong>
+      <ul>
+        <li>Use lowercase and hyphens: <code>.main-nav</code>, <code>.footer-links</code></li>
+        <li>Be semantic and descriptive: <code>.form-input</code> not <code>.blue-box</code></li>
+        <li>Avoid IDs for styling – use classes instead</li>
+        <li>Prefix utility or state classes if needed: <code>.u-text-center</code>, <code>.is-active</code></li>
+      </ul>
+    </li>
+
+    <li><strong>BB.6 – Class name collision prevention:</strong>
+      <ul>
+        <li>Namespace by component or section (e.g. <code>.nav-menu</code>)</li>
+        <li>Use scoped utilities (<code>.u-padding</code>)</li>
+        <li>Combine with CSS Modules or inline styles for isolation in component frameworks</li>
+      </ul>
+    </li>
+
+    <li><strong>BB.7 – Automated naming helpers (optional):</strong>
+      <ul>
+        <li>Linting: Stylelint, Prettier</li>
+        <li>Atomic CSS tools: Tailwind, Tachyons</li>
+        <li>Scoped systems: CSS Modules, BEM naming generators</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BC: State Machine Logic (CSS-Only) -->
+  <!-- Models state transitions (like toggle systems, steps, or tabs) using input selectors and pseudo-classes. -->
+  <h2>Section BC – State Machine Logic (CSS-Only)</h2>
+  <p><em>Note: CSS-only state logic allows the UI to change behavior based on form input states. This technique simulates "machines" where user input defines the current visual/interactive state — all without scripting.</em></p>
+
+  <ul>
+    <li><strong>BC.1 – Two-state toggle logic (ON/OFF):</strong>
+      <pre><code>&lt;input type="checkbox" id="switch"&gt;
+&lt;label for="switch"&gt;Toggle&lt;/label&gt;
+&lt;div class="state-on"&gt;On State&lt;/div&gt;
+
+#switch:checked ~ .state-on {
+  display: block;
+}</code></pre>
+      <p>Binary logic – visible only when ON.</p>
+    </li>
+
+    <li><strong>BC.2 – Multi-state control with radios:</strong>
+      <pre><code>&lt;input type="radio" name="step" id="step1" checked&gt;
+&lt;input type="radio" name="step" id="step2"&gt;
+
+&lt;div class="step" id="s1"&gt;Step 1&lt;/div&gt;
+&lt;div class="step" id="s2"&gt;Step 2&lt;/div&gt;
+
+#step1:checked ~ #s1 {
+  display: block;
+}
+#step2:checked ~ #s2 {
+  display: block;
+}</code></pre>
+      <p>Simulates a finite state machine where each step is mutually exclusive.</p>
+    </li>
+
+    <li><strong>BC.3 – State transitions using animation triggers:</strong>
+      <pre><code>#toggle:checked ~ .panel {
+  animation: slide-in 0.3s ease forwards;
+}</code></pre>
+      <p>Apply transitions only in a given state.</p>
+    </li>
+
+    <li><strong>BC.4 – CSS-only tabs as state machine:</strong>
+      <ul>
+        <li>Each tab is a radio “state”</li>
+        <li>Only one content section visible at a time</li>
+        <li>Labels serve as “actions”</li>
+      </ul>
+    </li>
+
+    <li><strong>BC.5 – Wizard with next/previous state logic:</strong>
+      <pre><code>&lt;input type="radio" name="wizard" id="step1" checked&gt;
+&lt;label for="step2"&gt;Next&lt;/label&gt;
+&lt;div id="content1"&gt;Step 1 Content&lt;/div&gt;
+
+#step1:checked ~ #content1 {
+  display: block;
+}</code></pre>
+      <p>Uses form input structure to control UI logic flow.</p>
+    </li>
+
+    <li><strong>BC.6 – Limitations of CSS state machines:</strong>
+      <ul>
+        <li>No memory or persistence across page loads</li>
+        <li>No dynamic logic branching (only hardcoded states)</li>
+        <li>Not suitable for forms requiring conditional validation</li>
+      </ul>
+    </li>
+
+    <li><strong>BC.7 – Best use cases:</strong>
+      <ul>
+        <li>Accordions, toggles, multi-step onboarding</li>
+        <li>CSS-only tabbed navigation</li>
+        <li>Interactive quizzes (with radio or checkbox control)</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+    
+    <section class="section">
+  <!-- SECTION BD: GPU Performance & Containment -->
+  <!-- Optimize layout/rendering through GPU hints and containment boundaries to boost performance. -->
+  <h2>Section BD – GPU Performance & Containment</h2>
+  <p><em>Note: GPU optimization minimizes layout thrashing and repaints by isolating animations and render operations. The <code>contain</code> property and hardware acceleration techniques like <code>transform: translateZ(0)</code> improve rendering and animation smoothness.</em></p>
+
+  <ul>
+    <li><strong>BD.1 – Promote an element to GPU layer:</strong>
+      <pre><code>.gpu-box {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}</code></pre>
+      <p>Forces the browser to use the GPU to handle rendering for the element.</p>
+    </li>
+
+    <li><strong>BD.2 – Use <code>contain</code> to scope layout/render/paint:</strong>
+      <pre><code>.widget {
+  contain: layout paint style;
+}</code></pre>
+      <p>Restricts layout calculations to the element and its children.</p>
+    </li>
+
+    <li><strong>BD.3 – Isolation and stacking:</strong>
+      <pre><code>.card {
+  isolation: isolate;
+  z-index: 0;
+}</code></pre>
+      <p>Prevents composite artifacts from sibling interactions (useful for blend modes).</p>
+    </li>
+
+    <li><strong>BD.4 – Animate with GPU-friendly properties:</strong>
+      <ul>
+        <li><code>transform</code> (scale, translate, rotate)</li>
+        <li><code>opacity</code></li>
+      </ul>
+      <p><strong>Avoid:</strong> animating <code>width</code>, <code>height</code>, <code>left</code>, <code>top</code>, which trigger layout recalculation.</p>
+    </li>
+
+    <li><strong>BD.5 – High-performance animation example:</strong>
+      <pre><code>.box {
+  transition: transform 0.3s ease-out;
+}
+.box:hover {
+  transform: scale(1.1);
+}</code></pre>
+    </li>
+
+    <li><strong>BD.6 – Containment types:</strong>
+      <ul>
+        <li><code>contain: layout;</code> – Prevent layout reflow outside</li>
+        <li><code>contain: paint;</code> – Prevent repainting other elements</li>
+        <li><code>contain: size;</code> – Enforce size isolation</li>
+        <li><code>contain: content;</code> – Applies all except size</li>
+      </ul>
+    </li>
+
+    <li><strong>BD.7 – Best practices:</strong>
+      <ul>
+        <li>Use <code>will-change</code> only when needed — overuse hurts perf</li>
+        <li>Test performance with browser dev tools (Layers, FPS, Paint)</li>
+        <li>Wrap animated layers in containers with <code>contain</code> and <code>isolation</code></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BE: Framework Compatibility Notes -->
+  <!-- Helps avoid conflicts when using your custom CSS alongside major frameworks or design systems. -->
+  <h2>Section BE – Framework Compatibility Notes</h2>
+  <p><em>Note: Frameworks ship with opinionated styles, variables, and class structures. Custom CSS must be scoped and structured carefully to avoid unexpected overrides or conflicts.</em></p>
+
+  <ul>
+    <li><strong>BE.1 – Avoid class name collisions:</strong>
+      <ul>
+        <li>Prefix your classes: <code>.custom-btn</code> instead of <code>.btn</code></li>
+        <li>Use BEM or namespacing: <code>.myapp-header__nav</code></li>
+        <li>Frameworks often use global class names — check docs before reuse</li>
+      </ul>
+    </li>
+
+    <li><strong>BE.2 – Respect framework specificity:</strong>
+      <ul>
+        <li>Frameworks may use `!important` or high-specificity selectors</li>
+        <li>Use `:where()` or `:is()` to reduce specificity where needed</li>
+        <li>Avoid over-cascading — test overrides carefully</li>
+      </ul>
+    </li>
+
+    <li><strong>BE.3 – Framework overrides and resets:</strong>
+      <pre><code>/* Remove Bootstrap's margin reset */
+body {
+  margin: revert;
+}</code></pre>
+      <p>Use <code>revert</code> or scoped selectors to undo opinionated styles.</p>
+    </li>
+
+    <li><strong>BE.4 – Utility frameworks (Tailwind, etc.):</strong>
+      <ul>
+        <li>Tailwind uses utility-first atomic classes (e.g. <code>text-sm</code>, <code>bg-blue-500</code>)</li>
+        <li>Use <code>@layer utilities</code> or <code>@apply</code> to extend cleanly</li>
+        <li>Avoid redefining utility names — it will break tailwind builds</li>
+      </ul>
+    </li>
+
+    <li><strong>BE.5 – Component-based libraries (React, Vue, etc.):</strong>
+      <ul>
+        <li>Prefer scoped styles via CSS Modules or <code>:scoped</code> in Vue</li>
+        <li>Pass classes as props: <code>&lt;Button class="my-btn"&gt;</code></li>
+        <li>Use shadow DOM or isolated styles in Web Components</li>
+      </ul>
+    </li>
+
+    <li><strong>BE.6 – CSS variable collision protection:</strong>
+      <pre><code>:root {
+  --myapp-accent-color: #ff6347;
+}</code></pre>
+      <p>Namespace all global variables with your project prefix.</p>
+    </li>
+
+    <li><strong>BE.7 – General tips for compatibility:</strong>
+      <ul>
+        <li>Never overwrite framework source files</li>
+        <li>Use a layered override approach (`@layer base`, `@layer utilities`, etc.)</li>
+        <li>Document all overrides in a dedicated override.css or section</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION BF: Dark/Light Mode Switching -->
+  <!-- Enables automatic or user-controlled theming via CSS media queries and toggles -->
+  <h2>Section BF – Dark/Light Mode Switching</h2>
+  <p><em>Note: CSS supports both automatic and manual dark/light mode theming. Use <code>prefers-color-scheme</code> to detect system preference and toggle CSS variables or themes manually — all without JavaScript.</em></p>
+
+  <ul>
+    <li><strong>BF.1 – Auto-detect system theme using media query:</strong>
+      <pre><code>@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #111;
+  }
+}</code></pre>
+      <p>This method automatically switches the theme based on the user's OS/browser settings.</p>
+    </li>
+
+    <li><strong>BF.2 – Manual theme control using CSS variables:</strong>
+      <pre><code>:root {
+  --bg: #ffffff;
+  --text: #111111;
+}
+
+[data-theme="dark"] {
+  --bg: #111111;
+  --text: #eeeeee;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}</code></pre>
+      <p>This setup allows switching the theme by changing the <code>data-theme</code> attribute in HTML.</p>
+    </li>
+
+    <li><strong>BF.3 – Simulated dark/light toggle using checkbox (no JavaScript):</strong>
+      <pre><code>&lt;input type="checkbox" id="theme-toggle" hidden&gt;
+&lt;label for="theme-toggle"&gt;Toggle Dark Mode&lt;/label&gt;
+&lt;div class="theme-wrapper"&gt;
+  &lt;p&gt;This content theme responds to toggle.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+}
+#theme-toggle:checked ~ .theme-wrapper {
+  --bg: #111111;
+  --text: #eeeeee;
+}
+.theme-wrapper {
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 1rem;
+}
+&lt;/style&gt;</code></pre>
+      <p>This toggles between light and dark themes using a checkbox state and CSS variables only.</p>
+    </li>
+
+    <li><strong>BF.4 – Tips for dark mode design:</strong>
+      <ul>
+        <li>Always validate contrast ratios (WCAG compliance)</li>
+        <li>Apply theme consistently to UI elements (buttons, cards, nav)</li>
+        <li>Use variables for maintainability</li>
+      </ul>
+    </li>
+
+    <li><strong>BF.5 – Best practices:</strong>
+      <ul>
+        <li>Avoid hardcoded dark/light colors in components</li>
+        <li>Use smooth transitions: <code>transition: background-color 0.3s, color 0.3s;</code></li>
+        <li>Test on real devices and different browsers</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION BG: Safe Area Insets (Mobile) -->
+  <!-- Ensures content adapts to modern screen notches and rounded corners using safe area insets. -->
+  <h2>Section BG – Safe Area Insets (Mobile)</h2>
+  <p><em>Note: On mobile browsers with dynamic display regions (e.g., iPhones with notches), environment variables help prevent content overlap with OS UI. Use <code>env(safe-area-inset-*)</code> to dynamically pad UI.</em></p>
+
+  <ul>
+    <li><strong>BG.1 – Common inset environment variables:</strong>
+      <ul>
+        <li><code>safe-area-inset-top</code></li>
+        <li><code>safe-area-inset-right</code></li>
+        <li><code>safe-area-inset-bottom</code></li>
+        <li><code>safe-area-inset-left</code></li>
+      </ul>
+      <p>Values dynamically match the device’s display constraints.</p>
+    </li>
+
+    <li><strong>BG.2 – Apply padding with safe insets:</strong>
+      <pre><code>body {
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+}</code></pre>
+      <p>Prevents text, headers, and footers from being obscured.</p>
+    </li>
+
+    <li><strong>BG.3 – Set minimum fallback padding:</strong>
+      <pre><code>body {
+  padding-top: max(20px, env(safe-area-inset-top));
+}</code></pre>
+      <p>Ensures usable padding on all devices.</p>
+    </li>
+
+    <li><strong>BG.4 – Scoped safe insets (e.g., navbar):</strong>
+      <pre><code>.navbar {
+  padding-top: env(safe-area-inset-top);
+}</code></pre>
+      <p>Target UI zones that need specific protection.</p>
+    </li>
+
+    <li><strong>BG.5 – Test behavior:</strong>
+      <ul>
+        <li>View site in full-screen Safari or mobile emulator</li>
+        <li>Rotate device to see dynamic inset changes</li>
+        <li>Inspect values via DevTools → Computed tab</li>
+      </ul>
+    </li>
+
+    <li><strong>BG.6 – Best practices:</strong>
+      <ul>
+        <li>Use environment variables with <code>max()</code> or <code>clamp()</code> for safety</li>
+        <li>Combine with media queries for specific mobile layouts</li>
+        <li>Avoid hardcoded pixel values that assume flat viewports</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+  <section class="section">
+  <!-- SECTION BH: CSS Hacks & Escape Techniques -->
+  <!-- Used to resolve browser-specific bugs, escape specificity limits, and target legacy environments. -->
+  <h2>Section BH – CSS Hacks & Escape Techniques</h2>
+  <p><em>Note: CSS hacks should be used sparingly and only when necessary, ideally with fallback strategies. Most hacks target legacy browsers, specificity collisions, or unsupported features.</em></p>
+
+  <ul>
+    <li><strong>BH.1 – Targeting specific browsers (e.g., Internet Explorer):</strong>
+      <pre><code>/* Target IE 10+ */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .legacy-fix {
+    margin-top: -1px;
+  }
+}</code></pre>
+      <p>Detects high-contrast mode in IE as a proxy for targeting IE10+.</p>
+    </li>
+
+    <li><strong>BH.2 – Safari-only hacks using @supports:</strong>
+      <pre><code>@supports (-webkit-hyphens: none) {
+  .safari-only {
+    padding-bottom: 2rem;
+  }
+}</code></pre>
+      <p>Targets WebKit-specific features that are only supported in Safari.</p>
+    </li>
+
+    <li><strong>BH.3 – Escape selector specificity (last resort):</strong>
+      <pre><code>.override {
+  all: unset;
+}</code></pre>
+      <p><code>all: unset</code> clears nearly all inherited and applied styles.</p>
+    </li>
+
+    <li><strong>BH.4 – Use <code>!important</code> to force override:</strong>
+      <pre><code>.btn {
+  background: red !important;
+}</code></pre>
+      <p>Forces the rule to take priority — avoid overusing this pattern.</p>
+    </li>
+
+    <li><strong>BH.5 – Using attribute selectors to escape bad IDs/classes:</strong>
+      <pre><code>[class^="js-"] {
+  pointer-events: none;
+}</code></pre>
+      <p>Useful for legacy code with unpredictable class naming.</p>
+    </li>
+
+    <li><strong>BH.6 – Using high-specificity selectors intentionally:</strong>
+      <pre><code>html body main section article .box {
+  border: 1px solid red;
+}</code></pre>
+      <p>Only use when lower-specificity selectors are being overridden.</p>
+    </li>
+
+    <li><strong>BH.7 – Target Firefox with specific @-moz support:</strong>
+      <pre><code>@-moz-document url-prefix() {
+  .firefox-hack {
+    font-weight: 600;
+  }
+}</code></pre>
+      <p>This only runs in Firefox. Deprecated but still functional in some versions.</p>
+    </li>
+
+    <li><strong>BH.8 – Combine vendor-prefixed properties:</strong>
+      <pre><code>.glassy {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}</code></pre>
+      <p>Ensures broader compatibility for modern effects like glassmorphism.</p>
+    </li>
+
+    <li><strong>BH.9 – Fallback strategies:</strong>
+      <ul>
+        <li>Use progressive enhancement: apply modern features only if supported</li>
+        <li>Test on multiple browsers and OS combinations</li>
+        <li>Document hacks inline with comments (with date, reason, and affected browser)</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BI: Accessibility & Reduced Motion Handling -->
+  <!-- Handles user accessibility preferences like reduced motion, visual clarity, focus indicators, and semantic styling -->
+  <h2>Section BI – Accessibility & Reduced Motion Handling</h2>
+  <p><em>Note: CSS can help make your UI more inclusive by supporting reduced motion, visible focus states, high contrast, and semantic structure. Always test for screen reader and keyboard navigation support.</em></p>
+
+  <ul>
+    <li><strong>BI.1 – Respect user’s reduced motion preference:</strong>
+      <pre><code>@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}</code></pre>
+      <p>Disables transitions and animations when the user has requested minimal motion.</p>
+    </li>
+
+    <li><strong>BI.2 – Ensure visible focus indicators:</strong>
+      <pre><code>button:focus,
+a:focus {
+  outline: 2px solid #00f;
+  outline-offset: 2px;
+}</code></pre>
+      <p>Always retain visible outlines to help keyboard users navigate.</p>
+    </li>
+
+    <li><strong>BI.3 – Use system fonts for legibility and screen reader compatibility:</strong>
+      <pre><code>body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}</code></pre>
+      <p>Improves readability and respects OS-level font adjustments.</p>
+    </li>
+
+    <li><strong>BI.4 – High contrast support (with forced colors):</strong>
+      <pre><code>@media (forced-colors: active) {
+  .card {
+    border: 1px solid ButtonText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}</code></pre>
+      <p>Supports accessibility tools like Windows High Contrast mode.</p>
+    </li>
+
+    <li><strong>BI.5 – Avoid using only color to convey meaning:</strong>
+      <p>Pair color cues with icons or text for users with color vision deficiency.</p>
+    </li>
+
+    <li><strong>BI.6 – Avoid animations that flash, flicker, or disorient:</strong>
+      <ul>
+        <li>No rapid flashing over 3 times/second</li>
+        <li>No sudden zoom, spin, or shake effects</li>
+        <li>Respect vestibular disorders by avoiding parallax or auto-play loops</li>
+      </ul>
+    </li>
+
+    <li><strong>BI.7 – Screen reader-safe content hiding:</strong>
+      <pre><code>.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+      <p>Makes content invisible visually but still readable by assistive tech.</p>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION BJ: Print & Pagination Features -->
+  <!-- Enables styles specific to printed output, including margins, paper size, and content control -->
+  <h2>Section BJ – Print & Pagination Features (<code>@page</code>)</h2>
+  <p><em>Note: Use print-specific styles and the <code>@page</code> at-rule to optimize documents for printing. Print CSS helps eliminate unnecessary elements, format content, and handle page breaks.</em></p>
+
+  <ul>
+    <li><strong>BJ.1 – Basic print media query:</strong>
+      <pre><code>@media print {
+  body {
+    font-size: 12pt;
+    color: black;
+    background: white;
+  }
+}</code></pre>
+      <p>Wrap styles in <code>@media print</code> to apply them only when printing.</p>
+    </li>
+
+    <li><strong>BJ.2 – Remove unnecessary UI from print:</strong>
+      <pre><code>@media print {
+  nav, footer, .no-print {
+    display: none !important;
+  }
+}</code></pre>
+      <p>Use a class like <code>.no-print</code> to flag elements to hide in print view.</p>
+    </li>
+
+    <li><strong>BJ.3 – Add page break rules:</strong>
+      <pre><code>.page-break {
+  page-break-before: always;
+}</code></pre>
+      <p>Forces a new page before the element when printed.</p>
+    </li>
+
+    <li><strong>BJ.4 – Define printed page size and margins:</strong>
+      <pre><code>@page {
+  size: A4;
+  margin: 1in;
+}</code></pre>
+      <p>Controls paper size and page layout (use <code>letter</code>, <code>A4</code>, <code>landscape</code>, etc.).</p>
+    </li>
+
+    <li><strong>BJ.5 – Print header/footer control (limited support):</strong>
+      <pre><code>@page {
+  @top-left {
+    content: "My Document";
+  }
+  @bottom-right {
+    content: counter(page);
+  }
+}</code></pre>
+      <p>Experimental in most browsers—some support in paged media generators like PrinceXML or PDF output engines.</p>
+    </li>
+
+    <li><strong>BJ.6 – Optional: Print-only styles:</strong>
+      <pre><code>.print-only {
+  display: none;
+}
+
+@media print {
+  .print-only {
+    display: block;
+  }
+}</code></pre>
+      <p>Show additional content only in printed versions (e.g., disclaimers, citations).</p>
+    </li>
+  </ul>
+</section>
+
+
+<section class="section">
+  <!-- SECTION BK: Experimental & Deprecated Features -->
+  <!-- Tracks bleeding-edge CSS capabilities and flags those no longer safe for use -->
+  <h2>Section BK – Experimental & Deprecated Features</h2>
+  <p><em>Note: Use experimental features with caution and behind feature detection. Avoid deprecated properties in production unless absolutely necessary for legacy support.</em></p>
+
+  <ul>
+    <li><strong>BK.1 – Experimental (use with <code>@supports</code>):</strong>
+      <ul>
+        <li><code>anchor-position</code> (CSS Anchor Positioning)</li>
+        <li><code>subgrid</code> (Extended CSS Grid layout, partial Firefox/Chrome support)</li>
+        <li><code>scroll-timeline</code> / <code>@scroll-timeline</code> (CSS Scroll-Linked Animations)</li>
+        <li><code>container-type: inline-size</code> (part of Container Queries)</li>
+        <li><code>has()</code> selector (e.g., <code>:has(img)</code>) – supported in modern Chrome, Safari</li>
+      </ul>
+    </li>
+
+    <li><strong>BK.2 – Deprecated or Obsolete:</strong>
+      <ul>
+        <li><code><u>&lt;font&gt;</u></code> tag – HTML-level font styling is obsolete</li>
+        <li><code>zoom</code> – non-standard (works in IE/Chrome only, avoid)</li>
+        <li><code>clip</code> (use <code>clip-path</code> instead)</li>
+        <li><code>-webkit-marquee</code> – deprecated, experimental WebKit-only feature</li>
+        <li><code>float</code> for layout – replaced by Flexbox and Grid</li>
+      </ul>
+    </li>
+
+    <li><strong>BK.3 – Experimental pseudo-elements:</strong>
+      <pre><code>::view-transition,
+::spelling-error,
+::grammar-error</code></pre>
+      <p>These may be browser-specific or experimental and should be avoided unless controlled.</p>
+    </li>
+
+    <li><strong>BK.4 – Avoid over-reliance on browser prefixes:</strong>
+      <pre><code>/* Bad: */
+-webkit-transform: rotate(45deg);
+-moz-transform: rotate(45deg);
+transform: rotate(45deg);</code></pre>
+      <p>Only use prefixes when absolutely needed. Use tools like Autoprefixer instead.</p>
+    </li>
+
+    <li><strong>BK.5 – Best practices:</strong>
+      <ul>
+        <li>Always wrap new features with <code>@supports</code> for fallback:</li>
+        <pre><code>@supports (scroll-timeline: auto) {
+  .anim {
+    scroll-timeline: customTimeline;
+  }
+}</code></pre>
+
+        <li>Check compatibility on <a href="https://caniuse.com" target="_blank">CanIUse.com</a> before use</li>
+        <li>Avoid deprecated syntax in modern projects</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BL: Unit Reference Table -->
+  <!-- Reference chart of all CSS units including pixel, percentage, em, rem, viewport, and more -->
+  <h2>Section BL – Unit Reference Table</h2>
+  <p><em>Note: Always choose units based on context — use relative units (like <code>em</code>, <code>rem</code>, <code>%</code>) for fluid layouts, and viewport units (<code>vw</code>, <code>vh</code>) for responsive scaling.</em></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Unit</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Common Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>px</code></td>
+        <td>Absolute</td>
+        <td>Pixel — fixed size on screen, not scalable</td>
+        <td>Fine control of borders, spacing, layout</td>
+      </tr>
+      <tr>
+        <td><code>em</code></td>
+        <td>Relative</td>
+        <td>Relative to the font-size of the parent</td>
+        <td>Font sizing, spacing, nested elements</td>
+      </tr>
+      <tr>
+        <td><code>rem</code></td>
+        <td>Relative</td>
+        <td>Relative to the root <code>html</code> font-size</td>
+        <td>Consistent sizing across entire document</td>
+      </tr>
+      <tr>
+        <td><code>%</code></td>
+        <td>Relative</td>
+        <td>Percentage of containing block</td>
+        <td>Fluid width/height, responsive layout</td>
+      </tr>
+      <tr>
+        <td><code>vw</code></td>
+        <td>Viewport</td>
+        <td>1% of the viewport width</td>
+        <td>Hero sections, responsive typography</td>
+      </tr>
+      <tr>
+        <td><code>vh</code></td>
+        <td>Viewport</td>
+        <td>1% of the viewport height</td>
+        <td>Full-screen layouts, vertical centering</td>
+      </tr>
+      <tr>
+        <td><code>vmin</code></td>
+        <td>Viewport</td>
+        <td>Smaller of <code>vw</code> and <code>vh</code></td>
+        <td>Scale elements based on smaller dimension</td>
+      </tr>
+      <tr>
+        <td><code>vmax</code></td>
+        <td>Viewport</td>
+        <td>Larger of <code>vw</code> and <code>vh</code></td>
+        <td>Responsive UI with maximum expansion</td>
+      </tr>
+      <tr>
+        <td><code>ch</code></td>
+        <td>Relative</td>
+        <td>Width of the "0" character in current font</td>
+        <td>Text boxes, monospace control</td>
+      </tr>
+      <tr>
+        <td><code>ex</code></td>
+        <td>Relative</td>
+        <td>Height of the lowercase "x"</td>
+        <td>Font-based vertical sizing</td>
+      </tr>
+      <tr>
+        <td><code>lh</code></td>
+        <td>Relative</td>
+        <td>Line-height unit, relative to the element’s <code>line-height</code></td>
+        <td>Typography control, spacing</td>
+      </tr>
+      <tr>
+        <td><code>fr</code></td>
+        <td>Grid-specific</td>
+        <td>Fractional unit for CSS Grid layout</td>
+        <td>Distribute space in grid columns/rows</td>
+      </tr>
+      <tr>
+        <td><code>cm / mm / in</code></td>
+        <td>Absolute</td>
+        <td>Physical dimensions — rarely used</td>
+        <td>Print CSS or exact physical layouts</td>
+      </tr>
+      <tr>
+        <td><code>pt / pc</code></td>
+        <td>Absolute</td>
+        <td>Point and pica — for print typography</td>
+        <td>Legacy typesetting or PDFs</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Best practices:</strong></p>
+  <ul>
+    <li>Use <code>rem</code> for global consistency</li>
+    <li>Use <code>em</code> for localized scaling (e.g., padding in buttons)</li>
+    <li>Use <code>%</code> and <code>vw/vh</code> for fluid responsiveness</li>
+    <li>Avoid <code>px</code> for font sizing in responsive design</li>
+    <li>Use <code>fr</code> only in CSS Grid context</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION BM: Snippet Library -->
+  <!-- A set of reusable, production-ready CSS snippets for rapid development -->
+  <h2>Section BM – Snippet Library</h2>
+  <p><em>Note: These CSS-only code snippets provide quick solutions for layout, utility classes, helpers, and responsive design — all usable without JavaScript.</em></p>
+
+  <ul>
+    <li><strong>BM.1 – Center anything (absolute):</strong>
+      <pre><code>.center-abs {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}</code></pre>
+      <p>Perfect for centering modals, loaders, etc.</p>
+    </li>
+
+    <li><strong>BM.2 – Responsive square:</strong>
+      <pre><code>.square {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+}</code></pre>
+      <p>Maintains a 1:1 ratio at any screen size.</p>
+    </li>
+
+    <li><strong>BM.3 – Clearfix utility:</strong>
+      <pre><code>.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}</code></pre>
+      <p>Clears floated elements inside containers.</p>
+    </li>
+
+    <li><strong>BM.4 – Responsive image class:</strong>
+      <pre><code>.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+      <p>Prevents images from overflowing containers.</p>
+    </li>
+
+    <li><strong>BM.5 – Visually hidden (but accessible):</strong>
+      <pre><code>.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}</code></pre>
+      <p>Hides content from view but keeps it screen-reader accessible.</p>
+    </li>
+
+    <li><strong>BM.6 – Aspect ratio utility (16:9):</strong>
+      <pre><code>.aspect-16-9 {
+  aspect-ratio: 16 / 9;
+}</code></pre>
+      <p>Ensures elements like videos maintain their ratio.</p>
+    </li>
+
+    <li><strong>BM.7 – Truncate text with ellipsis:</strong>
+      <pre><code>.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}</code></pre>
+      <p>Single-line text truncation for cards or tables.</p>
+    </li>
+
+    <li><strong>BM.8 – Responsive container max-width:</strong>
+      <pre><code>.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}</code></pre>
+      <p>Consistent layout wrapper for all screens.</p>
+    </li>
+
+    <li><strong>BM.9 – Custom scrollbar styling (WebKit only):</strong>
+      <pre><code>::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}</code></pre>
+      <p>Customize scrollbars for a better UI experience (Chrome/Safari).</p>
+    </li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION BN: CSS Functions Index -->
+  <!-- Index of core CSS functions used in calculations, styling logic, filters, etc. -->
+  <h2>Section BN – CSS Functions Index</h2>
+  <p><em>Note: CSS functions allow for dynamic styling, filtering, responsive math, and logic-based property control. Most are usable in any modern browser.</em></p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Function</th>
+        <th>Purpose</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>calc()</code></td>
+        <td>Performs math in CSS</td>
+        <td><code>width: calc(100% - 2rem);</code></td>
+      </tr>
+      <tr>
+        <td><code>min()</code></td>
+        <td>Returns the smallest value</td>
+        <td><code>width: min(400px, 100%);</code></td>
+      </tr>
+      <tr>
+        <td><code>max()</code></td>
+        <td>Returns the largest value</td>
+        <td><code>height: max(2rem, 10vh);</code></td>
+      </tr>
+      <tr>
+        <td><code>clamp()</code></td>
+        <td>Constrains a value within a range</td>
+        <td><code>font-size: clamp(1rem, 2vw, 2rem);</code></td>
+      </tr>
+      <tr>
+        <td><code>var()</code></td>
+        <td>Access a CSS custom property</td>
+        <td><code>color: var(--primary);</code></td>
+      </tr>
+      <tr>
+        <td><code>url()</code></td>
+        <td>References external assets</td>
+        <td><code>background: url("image.jpg");</code></td>
+      </tr>
+      <tr>
+        <td><code>rgba()</code>, <code>hsla()</code></td>
+        <td>Define colors with transparency</td>
+        <td><code>color: rgba(0, 0, 0, 0.5);</code></td>
+      </tr>
+      <tr>
+        <td><code>attr()</code></td>
+        <td>Access HTML attributes in content</td>
+        <td><code>content: attr(data-label);</code></td>
+      </tr>
+      <tr>
+        <td><code>env()</code></td>
+        <td>Access device environment values</td>
+        <td><code>padding: env(safe-area-inset-top);</code></td>
+      </tr>
+      <tr>
+        <td><code>round()</code> (future)</td>
+        <td>Rounding math — limited support</td>
+        <td><code>margin: round(33.33%, 5%);</code></td>
+      </tr>
+      <tr>
+        <td><code>color-mix()</code></td>
+        <td>Mixes two colors</td>
+        <td><code>color: color-mix(in srgb, red 50%, blue);</code></td>
+      </tr>
+      <tr>
+        <td><code>image-set()</code></td>
+        <td>Responsive image loading</td>
+        <td><code>background-image: image-set("low.jpg" 1x, "high.jpg" 2x);</code></td>
+      </tr>
+      <tr>
+        <td><code>linear-gradient()</code></td>
+        <td>Creates gradients</td>
+        <td><code>background: linear-gradient(to right, #000, #fff);</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p><strong>Best practices:</strong></p>
+  <ul>
+    <li>Use <code>clamp()</code> for responsive typography and spacing</li>
+    <li>Use <code>calc()</code> when you need dynamic layout math</li>
+    <li>Wrap all fallback-unsafe functions with <code>@supports</code> when needed</li>
+    <li>Use <code>var()</code> + <code>calc()</code> for modular scale systems</li>
+  </ul>
+</section>
+
+
+    <section class="section">
+  <!-- SECTION BO: Visual Debug Patterns -->
+  <!-- Utility styles and patterns that visually expose box boundaries, flow, and stacking issues -->
+  <h2>Section BO – Visual Debug Patterns</h2>
+  <p><em>Note: Use debug patterns to visualize box model behavior, stacking context, z-index issues, or layout anomalies. These should be removed or toggled off before deployment.</em></p>
+
+  <ul>
+    <li><strong>BO.1 – Outline all elements:</strong>
+      <pre><code>* {
+  outline: 1px solid red;
+}</code></pre>
+      <p>Draws borders around every element — ideal for visualizing structure.</p>
+    </li>
+
+    <li><strong>BO.2 – Debug class with dashed border:</strong>
+      <pre><code>.debug {
+  border: 2px dashed hotpink !important;
+  background: rgba(255, 0, 255, 0.05);
+}</code></pre>
+      <p>Apply to individual components when troubleshooting alignment.</p>
+    </li>
+
+    <li><strong>BO.3 – Show z-index stacking with colored overlays:</strong>
+      <pre><code>.z-index-map * {
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  background-blend-mode: multiply;
+}</code></pre>
+      <p>Apply to a region where overlapping is breaking stacking behavior.</p>
+    </li>
+
+    <li><strong>BO.4 – Add box model visualization:</strong>
+      <pre><code>.box-debug {
+  padding: 1rem;
+  border: 2px dashed #09f;
+  margin: 1rem;
+  background-color: rgba(0, 128, 255, 0.1);
+}</code></pre>
+      <p>Helps detect padding vs. margin overflow.</p>
+    </li>
+
+    <li><strong>BO.5 – Visualize empty elements:</strong>
+      <pre><code>*:empty {
+  background: rgba(255, 0, 0, 0.2);
+}</code></pre>
+      <p>Highlights accidentally empty containers that break layout.</p>
+    </li>
+
+    <li><strong>BO.6 – Detect off-screen content:</strong>
+      <pre><code>* {
+  outline: 1px dotted green;
+  transform: translateZ(0);
+}</code></pre>
+      <p>Triggers GPU compositing to help debug reflow or position issues.</p>
+    </li>
+
+    <li><strong>BO.7 – Print layout testing (optional):</strong>
+      <pre><code>@media print {
+  * {
+    outline: 1px dashed gray;
+  }
+}</code></pre>
+      <p>Force box outlines in printed output to test page breaks.</p>
+    </li>
+  </ul>
+</section>
+
+
+    
+    
+    
+    
+    
+
+    
+
+        
+    
+    
+    
+
+        
     
     
     
