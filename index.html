@@ -970,7 +970,178 @@ text-overflow: ellipsis;</code></pre>
   </ul>
 </section>
 
+<section class="section">
+  <!-- SECTION AB: Common Pitfalls -->
+  <!-- Covers frequently encountered mistakes and misunderstandings in CSS usage and layout behavior. -->
+  <h2>Section AB – Common Pitfalls</h2>
+  <p><em>Note: These are mistakes developers often make when writing CSS. Understanding them helps avoid bugs, layout inconsistencies, and accessibility issues.</em></p>
+  <ul>
+    <li><strong>AB.1 – Overusing !important:</strong> Leads to specificity chaos and override wars. Reserve for critical overrides only.</li>
+    <li><strong>AB.2 – Not understanding specificity:</strong> Conflicts arise when selectors compete. Learn how ID, class, and element specificity stacks.</li>
+    <li><strong>AB.3 – Deeply nested selectors:</strong> Reduces reusability, increases specificity, and leads to brittle code.</li>
+    <li><strong>AB.4 – Using fixed units everywhere:</strong> Avoid rigid <code>px</code> sizing for text/layouts. Use <code>rem</code>, <code>em</code>, or percentages for responsiveness.</li>
+    <li><strong>AB.5 – Setting width/height without box-sizing:</strong> Leads to unexpected overflow. Use <code>box-sizing: border-box;</code>.</li>
+    <li><strong>AB.6 – Not using a reset or normalize:</strong> Default browser styles vary. Normalize creates consistency across environments.</li>
+    <li><strong>AB.7 – Styling via tag names only:</strong> Overwrites all instances and can break third-party components. Use classes instead.</li>
+    <li><strong>AB.8 – Improper z-index usage:</strong> Failing to understand stacking contexts causes elements not to layer as expected.</li>
+    <li><strong>AB.9 – Relying on float for layout:</strong> Float is outdated. Prefer Flexbox or Grid for layout structures.</li>
+    <li><strong>AB.10 – Inconsistent naming conventions:</strong> Makes styles hard to trace or debug. Adopt a system (e.g., BEM, SMACSS).</li>
+    <li><strong>AB.11 – No accessibility consideration:</strong> Visual-only design without semantic structure or focus states harms usability.</li>
+    <li><strong>AB.12 – Ignoring responsive design:</strong> Fixed widths break layouts on mobile. Use media queries and fluid units.</li>
+    <li><strong>AB.13 – Animating layout properties:</strong> Avoid transitions on <code>top</code>, <code>left</code>, <code>width</code>, etc. — use <code>transform</code> for better performance.</li>
+    <li><strong>AB.14 – Missing fallbacks for custom properties:</strong> Use fallbacks when supporting older browsers:
+      <pre><code>color: black;
+color: var(--text-color, black);</code></pre>
+    </li>
+    <li><strong>AB.15 – Unused or duplicate rules:</strong> Bloats CSS. Use audits and cleanup tools regularly.</li>
+  </ul>
+</section>
 
+<section class="section">
+  <!-- SECTION AC: Debugging Tools -->
+  <!-- Covers tools, techniques, and utilities for identifying and fixing CSS layout or rendering issues. -->
+  <h2>Section AC – Debugging Tools</h2>
+  <p><em>Note: Debugging CSS effectively requires visual inspection, layout tracing, and clear indicators of how styles are applied and inherited.</em></p>
+  <ul>
+    <li><strong>AC.1 – Browser DevTools:</strong> Use Chrome, Firefox, Safari, or Edge inspector panels to:
+      <ul>
+        <li>Inspect elements and computed styles</li>
+        <li>Edit CSS in real time</li>
+        <li>View box model overlays</li>
+        <li>Check accessibility, color contrast, and ARIA attributes</li>
+      </ul>
+    </li>
+    <li><strong>AC.2 – Element outlines for layout tracing:</strong>
+      <pre><code>* {
+  outline: 1px solid red !important;
+}</code></pre>
+      <p>Use this globally to highlight every element boundary.</p>
+    </li>
+    <li><strong>AC.3 – Debug utility classes:</strong> Apply temporary debug classes to spot-check structure:
+      <pre><code>.debug {
+  background: rgba(255,0,0,0.1);
+  border: 1px dashed red;
+}</code></pre>
+    </li>
+    <li><strong>AC.4 – Isolation helpers:</strong> Use <code>isolation: isolate</code> or <code>overflow: hidden</code> to isolate stacking/debug z-index conflicts.</li>
+    <li><strong>AC.5 – Layout overlays in DevTools:</strong> Toggle CSS Grid/Flexbox overlays in most browsers to see gaps, flow, and alignment.</li>
+    <li><strong>AC.6 – Scroll overflow indicators:</strong> Use overflow tests to spot scroll or clipping issues:
+      <pre><code>body {
+  overflow: auto;
+}</code></pre>
+    </li>
+    <li><strong>AC.7 – Responsive Design Mode:</strong> Test breakpoints visually in your browser’s dev tools.</li>
+    <li><strong>AC.8 – Performance panel:</strong> Evaluate style recalculations, reflows, and expensive animations.</li>
+    <li><strong>AC.9 – Use computed tab:</strong> Analyze final cascade and overrides to determine why a property isn’t applied.</li>
+    <li><strong>AC.10 – Style audit extensions:</strong> Install tools like:
+      <ul>
+        <li>Lighthouse (Chrome)</li>
+        <li>axe DevTools (accessibility)</li>
+        <li>VisBug (interactive inspection)</li>
+      </ul>
+    </li>
+    <li><strong>AC.11 – Avoid permanent debug styles:</strong> Remove helper styles before deployment to avoid bloated or broken UI.</li>
+  </ul>
+</section>
+
+
+   <section class="section">
+  <!-- SECTION AD: Cheat Sheet Structure -->
+  <!-- Describes internal organization principles, section formatting, naming conventions, and markup layout of the cheat sheet itself. -->
+  <h2>Section AD – Cheat Sheet Structure</h2>
+  <p><em>Note: This section explains the foundational layout, code organization, and logic behind building the cheat sheet for consistent long-term scalability.</em></p>
+  <ul>
+    <li><strong>AD.1 – HTML Semantics:</strong> Each cheat sheet section is wrapped in a semantic <code>&lt;section&gt;</code> element with a heading (`&lt;h2&gt;`).</li>
+    <li><strong>AD.2 – Section Class Naming:</strong> All section containers use a shared class <code>.section</code> for unified layout control.</li>
+    <li><strong>AD.3 – Headings Structure:</strong>
+      <ul>
+        <li><code>h2</code> for primary section titles (A–Z)</li>
+        <li><code>h3</code> or list items for subsection labels (e.g., A.1, B.2, etc.)</li>
+      </ul>
+    </li>
+    <li><strong>AD.4 – Code Examples:</strong> Use semantic tags: <code>&lt;pre&gt;&lt;code&gt;</code> for blocks and <code>&lt;code&gt;</code> inline. Always escape angle brackets.</li>
+    <li><strong>AD.5 – Inline Notes:</strong> Use <code>&lt;em&gt;</code> for short parenthetical or cautionary notes within paragraphs.</li>
+    <li><strong>AD.6 – Descriptive Comments:</strong> Every section starts with a `<!-- SECTION KEY: TITLE -->` comment and a 1-line purpose summary.</li>
+    <li><strong>AD.7 – Alphabetical Section IDs:</strong> Keep track of sections by using IDs or anchors like `id="section-a"` if needed for TOC.</li>
+    <li><strong>AD.8 – File Separation:</strong> Cheat sheet is split into:
+      <ul>
+        <li><strong>index.html</strong> – Content and structure</li>
+        <li><strong>styles.css</strong> – Layout, color, spacing, and theme styling</li>
+      </ul>
+    </li>
+    <li><strong>AD.9 – Expandability:</strong> Every section is modular and can be appended without disrupting layout.</li>
+    <li><strong>AD.10 – Table of Contents:</strong> A persistent or collapsible table of contents can link directly to each section (optional).</li>
+    <li><strong>AD.11 – Code Consistency:</strong> Use consistent casing (e.g., kebab-case for classes, lowercase for HTML tags, no inline styles).</li>
+    <li><strong>AD.12 – Accessibility in Markup:</strong> Follow WCAG: semantic structure, clear headings, keyboard focusable, contrast safe.</li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AE: Reference Section -->
+  <!-- Provides a glossary of key terms, values, units, and essential external links. Optimized for quick lookup. -->
+  <h2>Section AE – Reference Section</h2>
+  <p><em>Note: This glossary-style section allows quick access to recurring CSS concepts, unit types, common keywords, and external documentation.</em></p>
+  <ul>
+    <li><strong>AE.1 – Common Units:</strong>
+      <ul>
+        <li><code>px</code> – Pixels (absolute)</li>
+        <li><code>em</code> – Relative to parent font size</li>
+        <li><code>rem</code> – Relative to root element font size</li>
+        <li><code>%</code> – Relative to containing element</li>
+        <li><code>vw/vh</code> – Viewport width/height</li>
+        <li><code>ch</code>, <code>ex</code> – Character/height-based</li>
+        <li><code>fr</code> – Grid fractional unit</li>
+      </ul>
+    </li>
+
+    <li><strong>AE.2 – Display Values (Quick List):</strong>
+      <ul>
+        <li><code>block</code>, <code>inline</code>, <code>inline-block</code></li>
+        <li><code>flex</code>, <code>grid</code>, <code>inline-flex</code>, <code>inline-grid</code></li>
+        <li><code>none</code> – Hides element</li>
+      </ul>
+    </li>
+
+    <li><strong>AE.3 – Position Values:</strong>
+      <ul>
+        <li><code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></li>
+      </ul>
+    </li>
+
+    <li><strong>AE.4 – Color Keywords:</strong>
+      <ul>
+        <li><code>red</code>, <code>black</code>, <code>white</code>, <code>transparent</code>, <code>currentColor</code></li>
+        <li>HEX: <code>#rrggbb</code> | RGB: <code>rgb(255, 0, 0)</code> | HSL: <code>hsl(0, 100%, 50%)</code></li>
+      </ul>
+    </li>
+
+    <li><strong>AE.5 – Common Timing Functions:</strong>
+      <ul>
+        <li><code>ease</code>, <code>ease-in</code>, <code>ease-out</code>, <code>ease-in-out</code>, <code>linear</code>, <code>cubic-bezier()</code></li>
+      </ul>
+    </li>
+
+    <li><strong>AE.6 – Z-Index Reference:</strong> Determines stacking order; higher number = top layer.</li>
+
+    <li><strong>AE.7 – Specificity Reference:</strong> Inline > ID > Class > Type > Universal
+      <br><em>(1000: inline, 100: ID, 10: class, 1: element)</em>
+    </li>
+
+    <li><strong>AE.8 – Useful External Links:</strong>
+      <ul>
+        <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">MDN CSS Reference</a></li>
+        <li><a href="https://caniuse.com/" target="_blank" rel="noopener">Can I Use?</a></li>
+        <li><a href="https://css-tricks.com/snippets/css/" target="_blank" rel="noopener">CSS-Tricks Snippets</a></li>
+        <li><a href="https://smacss.com/" target="_blank" rel="noopener">SMACSS Guide</a></li>
+        <li><a href="https://getbem.com/naming/" target="_blank" rel="noopener">BEM Naming Reference</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+
+    
     
     
     
