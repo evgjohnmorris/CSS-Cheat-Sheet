@@ -17,7 +17,29 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 CSS Cheat Sheet. All rights reserved.</p>
+    <div>
+  <span id="scrolling-text">Loading copyright info...</span>
+</div>
+
+<script>
+  function updateCopyright() {
+    const now = new Date();
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: '2-digit',
+      second: '2-digit'
+    };
+    const formattedTime = now.toLocaleString('en-US', options);
+    const output = `All Rights Reserved | Copyright © | CSS Cheat Sheet | ${formattedTime} Johnathon Morris`;
+    document.getElementById("scrolling-text").innerText = output;
+  }
+
+  updateCopyright();
+  setInterval(updateCopyright, 1000);
+</script>
   </footer>
 </body>
 </html>
