@@ -1356,7 +1356,57 @@ color: var(--text-color, black);</code></pre>
 </section>
 
 
-    
+    <section class="section">
+  <!-- SECTION AK: Modern Color Spaces -->
+  <!-- Enables use of perceptually uniform, wide-gamut color spaces like oklab, lch, and lab for design precision and contrast control. -->
+  <h2>Section AK – Modern Color Spaces</h2>
+  <p><em>Note: Use modern color spaces to achieve better contrast, uniform perceptual shifts, and improved accessibility on wide-gamut displays.</em></p>
+  <ul>
+    <li><strong>AK.1 – <code>lab()</code>:</strong>
+      <pre><code>color: lab(50% 20 30);</code></pre>
+      <p>Perceptual lightness (L) and chroma (a/b axes) — more visually accurate than RGB.</p>
+    </li>
+
+    <li><strong>AK.2 – <code>lch()</code>:</strong>
+      <pre><code>color: lch(70% 50 320);</code></pre>
+      <p>Lightness–Chroma–Hue — offers intuitive hue angles and brightness scaling.</p>
+    </li>
+
+    <li><strong>AK.3 – <code>oklab()</code>:</strong>
+      <pre><code>color: oklab(0.7 0.1 0.1);</code></pre>
+      <p>Improved lightness linearity and contrast ratios — excellent for accessible UIs.</p>
+    </li>
+
+    <li><strong>AK.4 – <code>color()</code> with profile targeting:</strong>
+      <pre><code>color: color(display-p3 1 0.5 0);</code></pre>
+      <p>Target color profiles like <code>display-p3</code>, <code>srgb</code>, or <code>rec2020</code>.</p>
+    </li>
+
+    <li><strong>AK.5 – Color interpolation benefits:</strong> Use modern spaces for gradients that preserve tone and contrast:
+      <pre><code>background: linear-gradient(in oklab, red, blue);</code></pre>
+    </li>
+
+    <li><strong>AK.6 – Color mixing:</strong>
+      <pre><code>color-mix(in lch, red 60%, blue 40%)</code></pre>
+      <p>Blends colors in perceptual space rather than RGB.</p>
+    </li>
+
+    <li><strong>AK.7 – Fallback strategy:</strong>
+      <pre><code>color: red; /* fallback */
+color: lab(55% 30 20);</code></pre>
+      <p>Browsers that don’t support `lab()` will ignore the second declaration.</p>
+    </li>
+
+    <li><strong>AK.8 – When to use:</strong>
+      <ul>
+        <li>Accessible theming and contrast tuning</li>
+        <li>Consistent color transitions and gradients</li>
+        <li>UI component theming with perceptual accuracy</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
     
 
     
