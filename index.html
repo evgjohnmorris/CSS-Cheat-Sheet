@@ -1408,7 +1408,64 @@ color: lab(55% 30 20);</code></pre>
 </section>
 
     
+<section class="section">
+  <!-- SECTION AL: Scroll Behavior -->
+  <!-- Defines how scroll actions behave — either instantly or with smooth animation for better user experience. -->
+  <h2>Section AL – Scroll Behavior</h2>
+  <p><em>Note: CSS scroll behavior controls how scrolling transitions occur, including anchor jumps and programmatic scrolling. Use it for a smoother user experience in single-page layouts or in-page navigation.</em></p>
 
+  <ul>
+    <li><strong>AL.1 – Enabling smooth scrolling globally:</strong>
+      <pre><code>html {
+  scroll-behavior: smooth;
+}</code></pre>
+      <p>This enables smooth anchor scrolling across the whole document.</p>
+    </li>
+
+    <li><strong>AL.2 – Applying locally to containers:</strong>
+      <pre><code>.scroll-box {
+  overflow: auto;
+  scroll-behavior: smooth;
+}</code></pre>
+      <p>Enables smooth scroll inside scrollable divs or modal elements.</p>
+    </li>
+
+    <li><strong>AL.3 – Scroll behavior values:</strong>
+      <ul>
+        <li><code>auto</code> – Default browser behavior (jump)</li>
+        <li><code>smooth</code> – Animates scrolling</li>
+      </ul>
+    </li>
+
+    <li><strong>AL.4 – Scroll-margin and scroll-padding:</strong>
+      <p>Used with sticky headers or in-page links to prevent overlap.</p>
+      <pre><code>h2 {
+  scroll-margin-top: 80px;
+}</code></pre>
+    </li>
+
+    <li><strong>AL.5 – Scroll snapping (optional):</strong>
+      <pre><code>.container {
+  scroll-snap-type: y mandatory;
+}
+.child {
+  scroll-snap-align: start;
+}</code></pre>
+      <p>Use for carousels, sections, and full-screen scrollers.</p>
+    </li>
+
+    <li><strong>AL.6 – When to use:</strong>
+      <ul>
+        <li>Anchor navigation (`#section-id` links)</li>
+        <li>Scrollable cards or horizontal UIs</li>
+        <li>Page layout with sticky headers</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+    
     
     
     
