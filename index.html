@@ -1625,6 +1625,230 @@ button:hover {
 </section>
 
 
+    <section class="section">
+  <!-- SECTION AO: Masking & Clipping -->
+  <!-- Enables visual manipulation of element visibility using shape-based masks and clip-paths. -->
+  <h2>Section AO – Masking & Clipping</h2>
+  <p><em>Note: Use <code>clip-path</code> and <code>mask</code> to show only portions of elements, apply decorative cutouts, or reveal content selectively. Both support basic shapes, paths, and gradients.</em></p>
+
+  <ul>
+    <li><strong>AO.1 – Basic clip-path with a polygon:</strong>
+      <pre><code>.hex {
+  clip-path: polygon(25% 6%, 75% 6%, 100% 50%,
+                     75% 94%, 25% 94%, 0% 50%);
+}</code></pre>
+      <p>Clips the element into a hexagon. Accepts `circle()`, `ellipse()`, `inset()` and more.</p>
+    </li>
+
+    <li><strong>AO.2 – Predefined shape clip examples:</strong>
+      <pre><code>.circle {
+  clip-path: circle(50% at center);
+}</code></pre>
+    </li>
+
+    <li><strong>AO.3 – Image masks with gradients:</strong>
+      <pre><code>.fade-mask {
+  mask-image: linear-gradient(to bottom, black, transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+}</code></pre>
+      <p>Gradually hides bottom of element/image using a mask layer.</p>
+    </li>
+
+    <li><strong>AO.4 – External SVG masking:</strong>
+      <p>Define a mask in SVG, then reference it with <code>mask</code> in CSS:</p>
+      <pre><code>.svg-mask {
+  mask: url(#my-mask);
+  mask-mode: alpha;
+}</code></pre>
+    </li>
+
+    <li><strong>AO.5 – Combining with background-image:</strong>
+      <pre><code>.shape {
+  background-image: url(bg.jpg);
+  clip-path: circle(40%);
+}</code></pre>
+    </li>
+
+    <li><strong>AO.6 – When to use:</strong>
+      <ul>
+        <li>Custom-shaped buttons, cards, or avatars</li>
+        <li>Image reveal or fade effects</li>
+        <li>Component styling without extra SVG or JS</li>
+      </ul>
+    </li>
+
+    <li><strong>AO.7 – Performance and support tips:</strong>
+      <ul>
+        <li>Prefer <code>clip-path</code> for performance; it’s GPU accelerated</li>
+        <li>Add <code>-webkit-</code> prefix for better Safari support</li>
+        <li>Test across devices — masks have varying support depth</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AP: CSS-Only UI Components -->
+  <!-- Builds basic interactive components without JavaScript using stateful selectors and structural CSS. -->
+  <h2>Section AP – CSS-Only UI Components</h2>
+  <p><em>Note: With creative use of selectors like <code>:checked</code>, <code>:focus-within</code>, and <code>:target</code>, you can build functional UI components entirely in CSS. These are ideal for minimal environments or performance-critical apps.</em></p>
+
+  <ul>
+    <li><strong>AP.1 – Accordion using checkboxes:</strong>
+      <pre><code>&lt;input type="checkbox" id="accordion1"&gt;
+&lt;label for="accordion1"&gt;Section Title&lt;/label&gt;
+&lt;div class="accordion-content"&gt;Content here...&lt;/div&gt;
+</code></pre>
+
+      <pre><code>.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+input:checked + label + .accordion-content {
+  max-height: 200px;
+}</code></pre>
+    </li>
+
+    <li><strong>AP.2 – Tab interface with radio buttons:</strong>
+      <pre><code>&lt;input type="radio" name="tabs" id="tab1" checked&gt;
+&lt;label for="tab1"&gt;Tab 1&lt;/label&gt;
+&lt;div class="tab-content"&gt;Content 1&lt;/div&gt;
+</code></pre>
+
+      <pre><code>#tab1:checked ~ .tab-content-1 {
+  display: block;
+}</code></pre>
+    </li>
+
+    <li><strong>AP.3 – Modal using <code>:target</code>:</strong>
+      <pre><code>&lt;a href="#modal"&gt;Open Modal&lt;/a&gt;
+
+&lt;div id="modal" class="modal"&gt;
+  &lt;a href="#" class="close"&gt;X&lt;/a&gt;
+  &lt;p&gt;Modal content here.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+      <pre><code>.modal {
+  display: none;
+}
+#modal:target {
+  display: block;
+}</code></pre>
+    </li>
+
+    <li><strong>AP.4 – Tooltip using <code>:hover</code>:</strong>
+      <pre><code>.tooltip {
+  position: relative;
+}
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  background: #000;
+  color: white;
+  padding: 4px 8px;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+.tooltip:hover::after {
+  display: block;
+}</code></pre>
+    </li>
+
+    <li><strong>AP.5 – When to use CSS-only UI:</strong>
+      <ul>
+        <li>For simple components where full JS isn't needed</li>
+        <li>In environments where JS is restricted</li>
+        <li>For fast-loading, zero-dependency static pages</li>
+      </ul>
+    </li>
+
+    <li><strong>AP.6 – Limitations:</strong>
+      <ul>
+        <li>State doesn't persist beyond interaction</li>
+        <li>No async data fetching or complex logic</li>
+        <li>Accessibility must be handled manually</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="section">
+  <!-- SECTION AQ: Layered Animations -->
+  <!-- Combines transitions, keyframes, and timing layers for orchestrated UI motion effects. -->
+  <h2>Section AQ – Layered Animations</h2>
+  <p><em>Note: Layered animations coordinate multiple CSS effects using <code>animation</code>, <code>@keyframes</code>, <code>transition-delay</code>, and stacking logic. These techniques produce complex motion sequences without JavaScript.</em></p>
+
+  <ul>
+    <li><strong>AQ.1 – Basic animation stack:</strong>
+      <pre><code>@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.element {
+  animation: fadeIn 1s ease-in-out forwards;
+}</code></pre>
+      <p>This fades in an element once it’s visible.</p>
+    </li>
+
+    <li><strong>AQ.2 – Sequential delay chaining:</strong>
+      <pre><code>.item:nth-child(1) { animation-delay: 0s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.4s; }</code></pre>
+      <p>Triggers cascading animations in order.</p>
+    </li>
+
+    <li><strong>AQ.3 – Overlapping animation sequences:</strong>
+      <pre><code>@keyframes slideAndFade {
+  0%   { transform: translateY(10px); opacity: 0; }
+  50%  { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-5px); }
+}
+
+.layered {
+  animation: slideAndFade 1s ease-in-out forwards;
+}</code></pre>
+    </li>
+
+    <li><strong>AQ.4 – Using multiple animations:</strong>
+      <pre><code>.multi {
+  animation: fadeIn 0.5s ease-out,
+             scaleUp 1s ease-in 0.5s;
+}</code></pre>
+      <p>Multiple named animations can be layered with independent timing.</p>
+    </li>
+
+    <li><strong>AQ.5 – Staggered list reveal (example):</strong>
+      <pre><code>.list-item {
+  animation: fadeIn 0.6s ease both;
+}
+.list-item:nth-child(n) {
+  animation-delay: calc(0.1s * var(--i));
+}</code></pre>
+      <p>Works with CSS variables to create scalable staggered effects.</p>
+    </li>
+
+    <li><strong>AQ.6 – Scroll-triggered (using <code>:has</code> or <code>:target</code>):</strong>
+      <pre><code>section:target .reveal {
+  animation: fadeIn 1s ease forwards;
+}</code></pre>
+      <p>Use structural triggers to launch animations on interaction.</p>
+    </li>
+
+    <li><strong>AQ.7 – Best practices:</strong>
+      <ul>
+        <li>Use <code>forwards</code> to retain end state</li>
+        <li>Combine <code>transition</code> + <code>animation</code> for fine control</li>
+        <li>Use <code>will-change</code> for performance optimizations</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+    
     
     
     
