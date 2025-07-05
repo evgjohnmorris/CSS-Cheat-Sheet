@@ -157,5 +157,9 @@ background-color: oklab(0.65 0.1 -0.05);
 
 @layer forms { ... }
 
+--i: 1;
+animation-delay: calc(0.1s * var(--i));
 
+
+              
 
